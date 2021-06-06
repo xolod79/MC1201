@@ -1,0 +1,913 @@
+<session jtag_chain="DE-SoC [USB-1]" jtag_device="@2: 5CSEBA6(.|ES)/5CSEMA6/.. (0x02D020DD)" sof_file="output_files/MC1201.sof">
+  <display_tree gui_logging_enabled="0">
+    <display_branch instance="auto_signaltap_0" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+  </display_tree>
+  <instance enabled="true" entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <position_info>
+      <single attribute="active tab" value="0"/>
+      <single attribute="data horizontal scroll position" value="0"/>
+      <single attribute="data vertical scroll position" value="0"/>
+      <single attribute="setup horizontal scroll position" value="0"/>
+      <single attribute="setup vertical scroll position" value="0"/>
+      <single attribute="zoom level denominator" value="1"/>
+      <single attribute="zoom level numerator" value="128"/>
+      <single attribute="zoom offset denominator" value="1"/>
+      <single attribute="zoom offset numerator" value="1008"/>
+    </position_info>
+    <signal_set global_temp="1" name="signal_set: 2021/03/28 16:04:45  #0">
+      <clock name="emu:emu|hps_io:hps_io|sd_buff_wr" polarity="posedge" tap_mode="classic"/>
+      <config is_hps_trigger_out_selected="false" pipeline_level="0" ram_type="AUTO" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="1024" trigger_in_enable="yes" trigger_in_node="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" trigger_in_tap_mode="classic" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" tap_mode="classic"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" tap_mode="classic"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdcard_debug[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" tap_mode="classic"/>
+          <wire name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" tap_mode="classic"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <unified_setup_data_view>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdcard_debug[3..0]" order="msb_to_lsb" type="combinatorial">
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[3]" tap_mode="classic" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[2]" tap_mode="classic" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[1]" tap_mode="classic" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[0]" tap_mode="classic" type="combinatorial"/>
+          </node>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="91" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" storage_index="91" tap_mode="classic" trigger_index="91" type="unknown"/>
+            <node data_index="90" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" storage_index="90" tap_mode="classic" trigger_index="90" type="unknown"/>
+            <node data_index="89" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" storage_index="89" tap_mode="classic" trigger_index="89" type="unknown"/>
+            <node data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" storage_index="88" tap_mode="classic" trigger_index="88" type="unknown"/>
+            <node data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" storage_index="87" tap_mode="classic" trigger_index="87" type="unknown"/>
+            <node data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" storage_index="86" tap_mode="classic" trigger_index="86" type="unknown"/>
+            <node data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" storage_index="85" tap_mode="classic" trigger_index="85" type="unknown"/>
+            <node data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" storage_index="84" tap_mode="classic" trigger_index="84" type="unknown"/>
+          </node>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="98" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" storage_index="98" tap_mode="classic" trigger_index="98" type="unknown"/>
+            <node data_index="97" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" storage_index="97" tap_mode="classic" trigger_index="97" type="unknown"/>
+            <node data_index="96" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" storage_index="96" tap_mode="classic" trigger_index="96" type="unknown"/>
+            <node data_index="95" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" storage_index="95" tap_mode="classic" trigger_index="95" type="unknown"/>
+            <node data_index="94" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" storage_index="94" tap_mode="classic" trigger_index="94" type="unknown"/>
+            <node data_index="93" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" storage_index="93" tap_mode="classic" trigger_index="93" type="unknown"/>
+            <node data_index="107" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" storage_index="107" tap_mode="classic" trigger_index="107" type="unknown"/>
+            <node data_index="106" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" storage_index="106" tap_mode="classic" trigger_index="106" type="unknown"/>
+            <node data_index="105" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" storage_index="105" tap_mode="classic" trigger_index="105" type="unknown"/>
+            <node data_index="104" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" storage_index="104" tap_mode="classic" trigger_index="104" type="unknown"/>
+            <node data_index="103" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" storage_index="103" tap_mode="classic" trigger_index="103" type="unknown"/>
+            <node data_index="102" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" storage_index="102" tap_mode="classic" trigger_index="102" type="unknown"/>
+            <node data_index="101" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" storage_index="101" tap_mode="classic" trigger_index="101" type="unknown"/>
+            <node data_index="100" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" storage_index="100" tap_mode="classic" trigger_index="100" type="unknown"/>
+            <node data_index="99" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" storage_index="99" tap_mode="classic" trigger_index="99" type="unknown"/>
+            <node data_index="92" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" storage_index="92" tap_mode="classic" trigger_index="92" type="unknown"/>
+          </node>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="114" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" storage_index="114" tap_mode="classic" trigger_index="114" type="unknown"/>
+            <node data_index="113" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" storage_index="113" tap_mode="classic" trigger_index="113" type="unknown"/>
+            <node data_index="112" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" storage_index="112" tap_mode="classic" trigger_index="112" type="unknown"/>
+            <node data_index="111" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" storage_index="111" tap_mode="classic" trigger_index="111" type="unknown"/>
+            <node data_index="110" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" storage_index="110" tap_mode="classic" trigger_index="110" type="unknown"/>
+            <node data_index="109" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" storage_index="109" tap_mode="classic" trigger_index="109" type="unknown"/>
+            <node data_index="123" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" storage_index="123" tap_mode="classic" trigger_index="123" type="unknown"/>
+            <node data_index="122" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" storage_index="122" tap_mode="classic" trigger_index="122" type="unknown"/>
+            <node data_index="121" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" storage_index="121" tap_mode="classic" trigger_index="121" type="unknown"/>
+            <node data_index="120" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" storage_index="120" tap_mode="classic" trigger_index="120" type="unknown"/>
+            <node data_index="119" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" storage_index="119" tap_mode="classic" trigger_index="119" type="unknown"/>
+            <node data_index="118" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" storage_index="118" tap_mode="classic" trigger_index="118" type="unknown"/>
+            <node data_index="117" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" storage_index="117" tap_mode="classic" trigger_index="117" type="unknown"/>
+            <node data_index="116" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" storage_index="116" tap_mode="classic" trigger_index="116" type="unknown"/>
+            <node data_index="115" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" storage_index="115" tap_mode="classic" trigger_index="115" type="unknown"/>
+            <node data_index="108" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" storage_index="108" tap_mode="classic" trigger_index="108" type="unknown"/>
+          </node>
+          <node data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" storage_index="77" tap_mode="classic" trigger_index="77" type="unknown"/>
+          <node data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" storage_index="78" tap_mode="classic" trigger_index="78" type="unknown"/>
+          <node data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" storage_index="79" tap_mode="classic" trigger_index="79" type="unknown"/>
+          <node data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" storage_index="80" tap_mode="classic" trigger_index="80" type="unknown"/>
+          <node data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" storage_index="81" tap_mode="classic" trigger_index="81" type="unknown"/>
+          <node data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" storage_index="82" tap_mode="classic" trigger_index="82" type="unknown"/>
+          <node data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" storage_index="83" tap_mode="classic" trigger_index="83" type="unknown"/>
+          <node data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" storage_index="76" tap_mode="classic" trigger_index="76" type="unknown"/>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+            <node data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+            <node data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+            <node data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+            <node data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+            <node data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+            <node data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+            <node data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          </node>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <node data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <node data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+            <node data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <node data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <node data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <node data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <node data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <node data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <node data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <node data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <node data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <node data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <node data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <node data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <node data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
+          </node>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
+            <node data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
+            <node data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
+            <node data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <node data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <node data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <node data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
+            <node data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
+            <node data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
+            <node data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
+            <node data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
+            <node data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
+            <node data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
+            <node data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
+            <node data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
+            <node data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+          </node>
+          <node data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
+          <node is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31..0]" order="msb_to_lsb" type="combinatorial">
+            <node data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" storage_index="66" tap_mode="classic" trigger_index="66" type="unknown"/>
+            <node data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" storage_index="65" tap_mode="classic" trigger_index="65" type="unknown"/>
+            <node data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" storage_index="63" tap_mode="classic" trigger_index="63" type="unknown"/>
+            <node data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" storage_index="62" tap_mode="classic" trigger_index="62" type="unknown"/>
+            <node data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" storage_index="61" tap_mode="classic" trigger_index="61" type="unknown"/>
+            <node data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" storage_index="60" tap_mode="classic" trigger_index="60" type="unknown"/>
+            <node data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" storage_index="59" tap_mode="classic" trigger_index="59" type="unknown"/>
+            <node data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" storage_index="58" tap_mode="classic" trigger_index="58" type="unknown"/>
+            <node data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" storage_index="57" tap_mode="classic" trigger_index="57" type="unknown"/>
+            <node data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" storage_index="56" tap_mode="classic" trigger_index="56" type="unknown"/>
+            <node data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" storage_index="55" tap_mode="classic" trigger_index="55" type="unknown"/>
+            <node data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" storage_index="54" tap_mode="classic" trigger_index="54" type="unknown"/>
+            <node data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" storage_index="52" tap_mode="classic" trigger_index="52" type="unknown"/>
+            <node data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" storage_index="51" tap_mode="classic" trigger_index="51" type="unknown"/>
+            <node data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" storage_index="50" tap_mode="classic" trigger_index="50" type="unknown"/>
+            <node data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" storage_index="49" tap_mode="classic" trigger_index="49" type="unknown"/>
+            <node data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" storage_index="48" tap_mode="classic" trigger_index="48" type="unknown"/>
+            <node data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" storage_index="47" tap_mode="classic" trigger_index="47" type="unknown"/>
+            <node data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" storage_index="46" tap_mode="classic" trigger_index="46" type="unknown"/>
+            <node data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" storage_index="45" tap_mode="classic" trigger_index="45" type="unknown"/>
+            <node data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" storage_index="44" tap_mode="classic" trigger_index="44" type="unknown"/>
+            <node data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" storage_index="43" tap_mode="classic" trigger_index="43" type="unknown"/>
+            <node data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" storage_index="73" tap_mode="classic" trigger_index="73" type="unknown"/>
+            <node data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" storage_index="72" tap_mode="classic" trigger_index="72" type="unknown"/>
+            <node data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" storage_index="71" tap_mode="classic" trigger_index="71" type="unknown"/>
+            <node data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" storage_index="70" tap_mode="classic" trigger_index="70" type="unknown"/>
+            <node data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" storage_index="69" tap_mode="classic" trigger_index="69" type="unknown"/>
+            <node data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" storage_index="68" tap_mode="classic" trigger_index="68" type="unknown"/>
+            <node data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" storage_index="67" tap_mode="classic" trigger_index="67" type="unknown"/>
+            <node data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" storage_index="64" tap_mode="classic" trigger_index="64" type="unknown"/>
+            <node data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" storage_index="53" tap_mode="classic" trigger_index="53" type="unknown"/>
+            <node data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
+          </node>
+          <node data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" storage_index="75" tap_mode="classic" trigger_index="75" type="unknown"/>
+          <node data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" storage_index="74" tap_mode="classic" trigger_index="74" type="unknown"/>
+          <node data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+        </unified_setup_data_view>
+        <data_view>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdcard_debug[3..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[3]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+            <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[2]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+            <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[1]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+            <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="95" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" storage_index="95" tap_mode="classic" trigger_index="95" type="unknown"/>
+            <net data_index="94" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" storage_index="94" tap_mode="classic" trigger_index="94" type="unknown"/>
+            <net data_index="93" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" storage_index="93" tap_mode="classic" trigger_index="93" type="unknown"/>
+            <net data_index="92" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" storage_index="92" tap_mode="classic" trigger_index="92" type="unknown"/>
+            <net data_index="91" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" storage_index="91" tap_mode="classic" trigger_index="91" type="unknown"/>
+            <net data_index="90" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" storage_index="90" tap_mode="classic" trigger_index="90" type="unknown"/>
+            <net data_index="89" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" storage_index="89" tap_mode="classic" trigger_index="89" type="unknown"/>
+            <net data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" storage_index="88" tap_mode="classic" trigger_index="88" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="102" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" storage_index="102" tap_mode="classic" trigger_index="102" type="unknown"/>
+            <net data_index="101" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" storage_index="101" tap_mode="classic" trigger_index="101" type="unknown"/>
+            <net data_index="100" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" storage_index="100" tap_mode="classic" trigger_index="100" type="unknown"/>
+            <net data_index="99" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" storage_index="99" tap_mode="classic" trigger_index="99" type="unknown"/>
+            <net data_index="98" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" storage_index="98" tap_mode="classic" trigger_index="98" type="unknown"/>
+            <net data_index="97" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" storage_index="97" tap_mode="classic" trigger_index="97" type="unknown"/>
+            <net data_index="111" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" storage_index="111" tap_mode="classic" trigger_index="111" type="unknown"/>
+            <net data_index="110" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" storage_index="110" tap_mode="classic" trigger_index="110" type="unknown"/>
+            <net data_index="109" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" storage_index="109" tap_mode="classic" trigger_index="109" type="unknown"/>
+            <net data_index="108" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" storage_index="108" tap_mode="classic" trigger_index="108" type="unknown"/>
+            <net data_index="107" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" storage_index="107" tap_mode="classic" trigger_index="107" type="unknown"/>
+            <net data_index="106" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" storage_index="106" tap_mode="classic" trigger_index="106" type="unknown"/>
+            <net data_index="105" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" storage_index="105" tap_mode="classic" trigger_index="105" type="unknown"/>
+            <net data_index="104" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" storage_index="104" tap_mode="classic" trigger_index="104" type="unknown"/>
+            <net data_index="103" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" storage_index="103" tap_mode="classic" trigger_index="103" type="unknown"/>
+            <net data_index="96" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" storage_index="96" tap_mode="classic" trigger_index="96" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="118" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" storage_index="118" tap_mode="classic" trigger_index="118" type="unknown"/>
+            <net data_index="117" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" storage_index="117" tap_mode="classic" trigger_index="117" type="unknown"/>
+            <net data_index="116" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" storage_index="116" tap_mode="classic" trigger_index="116" type="unknown"/>
+            <net data_index="115" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" storage_index="115" tap_mode="classic" trigger_index="115" type="unknown"/>
+            <net data_index="114" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" storage_index="114" tap_mode="classic" trigger_index="114" type="unknown"/>
+            <net data_index="113" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" storage_index="113" tap_mode="classic" trigger_index="113" type="unknown"/>
+            <net data_index="127" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" storage_index="127" tap_mode="classic" trigger_index="127" type="unknown"/>
+            <net data_index="126" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" storage_index="126" tap_mode="classic" trigger_index="126" type="unknown"/>
+            <net data_index="125" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" storage_index="125" tap_mode="classic" trigger_index="125" type="unknown"/>
+            <net data_index="124" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" storage_index="124" tap_mode="classic" trigger_index="124" type="unknown"/>
+            <net data_index="123" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" storage_index="123" tap_mode="classic" trigger_index="123" type="unknown"/>
+            <net data_index="122" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" storage_index="122" tap_mode="classic" trigger_index="122" type="unknown"/>
+            <net data_index="121" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" storage_index="121" tap_mode="classic" trigger_index="121" type="unknown"/>
+            <net data_index="120" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" storage_index="120" tap_mode="classic" trigger_index="120" type="unknown"/>
+            <net data_index="119" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" storage_index="119" tap_mode="classic" trigger_index="119" type="unknown"/>
+            <net data_index="112" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" storage_index="112" tap_mode="classic" trigger_index="112" type="unknown"/>
+          </bus>
+          <net data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" storage_index="81" tap_mode="classic" trigger_index="81" type="unknown"/>
+          <net data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" storage_index="82" tap_mode="classic" trigger_index="82" type="unknown"/>
+          <net data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" storage_index="83" tap_mode="classic" trigger_index="83" type="unknown"/>
+          <net data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" storage_index="84" tap_mode="classic" trigger_index="84" type="unknown"/>
+          <net data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" storage_index="85" tap_mode="classic" trigger_index="85" type="unknown"/>
+          <net data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" storage_index="86" tap_mode="classic" trigger_index="86" type="unknown"/>
+          <net data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" storage_index="87" tap_mode="classic" trigger_index="87" type="unknown"/>
+          <net data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" storage_index="80" tap_mode="classic" trigger_index="80" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
+            <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+            <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+            <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+            <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
+            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
+            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
+            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
+            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
+            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
+            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" storage_index="44" tap_mode="classic" trigger_index="44" type="unknown"/>
+            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" storage_index="43" tap_mode="classic" trigger_index="43" type="unknown"/>
+            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
+            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
+            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
+            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
+            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
+            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
+            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
+            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
+          </bus>
+          <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" storage_index="45" tap_mode="classic" trigger_index="45" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" storage_index="70" tap_mode="classic" trigger_index="70" type="unknown"/>
+            <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" storage_index="69" tap_mode="classic" trigger_index="69" type="unknown"/>
+            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" storage_index="67" tap_mode="classic" trigger_index="67" type="unknown"/>
+            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" storage_index="66" tap_mode="classic" trigger_index="66" type="unknown"/>
+            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" storage_index="65" tap_mode="classic" trigger_index="65" type="unknown"/>
+            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" storage_index="64" tap_mode="classic" trigger_index="64" type="unknown"/>
+            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" storage_index="63" tap_mode="classic" trigger_index="63" type="unknown"/>
+            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" storage_index="62" tap_mode="classic" trigger_index="62" type="unknown"/>
+            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" storage_index="61" tap_mode="classic" trigger_index="61" type="unknown"/>
+            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" storage_index="60" tap_mode="classic" trigger_index="60" type="unknown"/>
+            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" storage_index="59" tap_mode="classic" trigger_index="59" type="unknown"/>
+            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" storage_index="58" tap_mode="classic" trigger_index="58" type="unknown"/>
+            <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" storage_index="56" tap_mode="classic" trigger_index="56" type="unknown"/>
+            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" storage_index="55" tap_mode="classic" trigger_index="55" type="unknown"/>
+            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" storage_index="54" tap_mode="classic" trigger_index="54" type="unknown"/>
+            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" storage_index="53" tap_mode="classic" trigger_index="53" type="unknown"/>
+            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" storage_index="52" tap_mode="classic" trigger_index="52" type="unknown"/>
+            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" storage_index="51" tap_mode="classic" trigger_index="51" type="unknown"/>
+            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" storage_index="50" tap_mode="classic" trigger_index="50" type="unknown"/>
+            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" storage_index="49" tap_mode="classic" trigger_index="49" type="unknown"/>
+            <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" storage_index="48" tap_mode="classic" trigger_index="48" type="unknown"/>
+            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" storage_index="47" tap_mode="classic" trigger_index="47" type="unknown"/>
+            <net data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" storage_index="77" tap_mode="classic" trigger_index="77" type="unknown"/>
+            <net data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" storage_index="76" tap_mode="classic" trigger_index="76" type="unknown"/>
+            <net data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" storage_index="75" tap_mode="classic" trigger_index="75" type="unknown"/>
+            <net data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" storage_index="74" tap_mode="classic" trigger_index="74" type="unknown"/>
+            <net data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" storage_index="73" tap_mode="classic" trigger_index="73" type="unknown"/>
+            <net data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" storage_index="72" tap_mode="classic" trigger_index="72" type="unknown"/>
+            <net data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" storage_index="71" tap_mode="classic" trigger_index="71" type="unknown"/>
+            <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" storage_index="68" tap_mode="classic" trigger_index="68" type="unknown"/>
+            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" storage_index="57" tap_mode="classic" trigger_index="57" type="unknown"/>
+            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" storage_index="46" tap_mode="classic" trigger_index="46" type="unknown"/>
+          </bus>
+          <net data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" storage_index="79" tap_mode="classic" trigger_index="79" type="unknown"/>
+          <net data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" storage_index="78" tap_mode="classic" trigger_index="78" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+        </data_view>
+        <setup_view>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdcard_debug[3..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[3]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+            <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[2]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+            <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[1]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+            <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdcard_debug[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="95" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[7]" storage_index="95" tap_mode="classic" trigger_index="95" type="unknown"/>
+            <net data_index="94" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[6]" storage_index="94" tap_mode="classic" trigger_index="94" type="unknown"/>
+            <net data_index="93" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[5]" storage_index="93" tap_mode="classic" trigger_index="93" type="unknown"/>
+            <net data_index="92" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[4]" storage_index="92" tap_mode="classic" trigger_index="92" type="unknown"/>
+            <net data_index="91" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[3]" storage_index="91" tap_mode="classic" trigger_index="91" type="unknown"/>
+            <net data_index="90" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[2]" storage_index="90" tap_mode="classic" trigger_index="90" type="unknown"/>
+            <net data_index="89" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[1]" storage_index="89" tap_mode="classic" trigger_index="89" type="unknown"/>
+            <net data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_addr[0]" storage_index="88" tap_mode="classic" trigger_index="88" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="102" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[15]" storage_index="102" tap_mode="classic" trigger_index="102" type="unknown"/>
+            <net data_index="101" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[14]" storage_index="101" tap_mode="classic" trigger_index="101" type="unknown"/>
+            <net data_index="100" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[13]" storage_index="100" tap_mode="classic" trigger_index="100" type="unknown"/>
+            <net data_index="99" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[12]" storage_index="99" tap_mode="classic" trigger_index="99" type="unknown"/>
+            <net data_index="98" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[11]" storage_index="98" tap_mode="classic" trigger_index="98" type="unknown"/>
+            <net data_index="97" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[10]" storage_index="97" tap_mode="classic" trigger_index="97" type="unknown"/>
+            <net data_index="111" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[9]" storage_index="111" tap_mode="classic" trigger_index="111" type="unknown"/>
+            <net data_index="110" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[8]" storage_index="110" tap_mode="classic" trigger_index="110" type="unknown"/>
+            <net data_index="109" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[7]" storage_index="109" tap_mode="classic" trigger_index="109" type="unknown"/>
+            <net data_index="108" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[6]" storage_index="108" tap_mode="classic" trigger_index="108" type="unknown"/>
+            <net data_index="107" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[5]" storage_index="107" tap_mode="classic" trigger_index="107" type="unknown"/>
+            <net data_index="106" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[4]" storage_index="106" tap_mode="classic" trigger_index="106" type="unknown"/>
+            <net data_index="105" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[3]" storage_index="105" tap_mode="classic" trigger_index="105" type="unknown"/>
+            <net data_index="104" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[2]" storage_index="104" tap_mode="classic" trigger_index="104" type="unknown"/>
+            <net data_index="103" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[1]" storage_index="103" tap_mode="classic" trigger_index="103" type="unknown"/>
+            <net data_index="96" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_in[0]" storage_index="96" tap_mode="classic" trigger_index="96" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="118" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[15]" storage_index="118" tap_mode="classic" trigger_index="118" type="unknown"/>
+            <net data_index="117" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[14]" storage_index="117" tap_mode="classic" trigger_index="117" type="unknown"/>
+            <net data_index="116" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[13]" storage_index="116" tap_mode="classic" trigger_index="116" type="unknown"/>
+            <net data_index="115" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[12]" storage_index="115" tap_mode="classic" trigger_index="115" type="unknown"/>
+            <net data_index="114" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[11]" storage_index="114" tap_mode="classic" trigger_index="114" type="unknown"/>
+            <net data_index="113" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[10]" storage_index="113" tap_mode="classic" trigger_index="113" type="unknown"/>
+            <net data_index="127" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[9]" storage_index="127" tap_mode="classic" trigger_index="127" type="unknown"/>
+            <net data_index="126" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[8]" storage_index="126" tap_mode="classic" trigger_index="126" type="unknown"/>
+            <net data_index="125" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[7]" storage_index="125" tap_mode="classic" trigger_index="125" type="unknown"/>
+            <net data_index="124" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[6]" storage_index="124" tap_mode="classic" trigger_index="124" type="unknown"/>
+            <net data_index="123" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[5]" storage_index="123" tap_mode="classic" trigger_index="123" type="unknown"/>
+            <net data_index="122" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[4]" storage_index="122" tap_mode="classic" trigger_index="122" type="unknown"/>
+            <net data_index="121" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[3]" storage_index="121" tap_mode="classic" trigger_index="121" type="unknown"/>
+            <net data_index="120" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[2]" storage_index="120" tap_mode="classic" trigger_index="120" type="unknown"/>
+            <net data_index="119" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[1]" storage_index="119" tap_mode="classic" trigger_index="119" type="unknown"/>
+            <net data_index="112" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_xfer_out[0]" storage_index="112" tap_mode="classic" trigger_index="112" type="unknown"/>
+          </bus>
+          <net data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_idle" storage_index="81" tap_mode="classic" trigger_index="81" type="unknown"/>
+          <net data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_ack" storage_index="82" tap_mode="classic" trigger_index="82" type="unknown"/>
+          <net data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_done" storage_index="83" tap_mode="classic" trigger_index="83" type="unknown"/>
+          <net data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start" storage_index="84" tap_mode="classic" trigger_index="84" type="unknown"/>
+          <net data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_ack" storage_index="85" tap_mode="classic" trigger_index="85" type="unknown"/>
+          <net data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_done" storage_index="86" tap_mode="classic" trigger_index="86" type="unknown"/>
+          <net data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_write_start" storage_index="87" tap_mode="classic" trigger_index="87" type="unknown"/>
+          <net data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_error" storage_index="80" tap_mode="classic" trigger_index="80" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[7]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[6]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[5]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[4]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
+            <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[3]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+            <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[2]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+            <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[1]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+            <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_addr[0]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[15]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[14]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[13]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[12]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[11]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[10]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[9]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[8]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[7]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[6]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[5]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[4]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[3]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[2]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[1]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_din[0]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+          </bus>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[15]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
+            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[14]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
+            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[13]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
+            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[12]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
+            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[11]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
+            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[10]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
+            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[9]" storage_index="44" tap_mode="classic" trigger_index="44" type="unknown"/>
+            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[8]" storage_index="43" tap_mode="classic" trigger_index="43" type="unknown"/>
+            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[7]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
+            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[6]" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
+            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[5]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
+            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[4]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
+            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[3]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
+            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[2]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
+            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[1]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
+            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_dout[0]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
+          </bus>
+          <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_buff_wr" storage_index="45" tap_mode="classic" trigger_index="45" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31..0]" order="msb_to_lsb" type="combinatorial">
+            <net data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[31]" storage_index="70" tap_mode="classic" trigger_index="70" type="unknown"/>
+            <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[30]" storage_index="69" tap_mode="classic" trigger_index="69" type="unknown"/>
+            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[29]" storage_index="67" tap_mode="classic" trigger_index="67" type="unknown"/>
+            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[28]" storage_index="66" tap_mode="classic" trigger_index="66" type="unknown"/>
+            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[27]" storage_index="65" tap_mode="classic" trigger_index="65" type="unknown"/>
+            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[26]" storage_index="64" tap_mode="classic" trigger_index="64" type="unknown"/>
+            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[25]" storage_index="63" tap_mode="classic" trigger_index="63" type="unknown"/>
+            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[24]" storage_index="62" tap_mode="classic" trigger_index="62" type="unknown"/>
+            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[23]" storage_index="61" tap_mode="classic" trigger_index="61" type="unknown"/>
+            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[22]" storage_index="60" tap_mode="classic" trigger_index="60" type="unknown"/>
+            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[21]" storage_index="59" tap_mode="classic" trigger_index="59" type="unknown"/>
+            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[20]" storage_index="58" tap_mode="classic" trigger_index="58" type="unknown"/>
+            <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[19]" storage_index="56" tap_mode="classic" trigger_index="56" type="unknown"/>
+            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[18]" storage_index="55" tap_mode="classic" trigger_index="55" type="unknown"/>
+            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[17]" storage_index="54" tap_mode="classic" trigger_index="54" type="unknown"/>
+            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[16]" storage_index="53" tap_mode="classic" trigger_index="53" type="unknown"/>
+            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[15]" storage_index="52" tap_mode="classic" trigger_index="52" type="unknown"/>
+            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[14]" storage_index="51" tap_mode="classic" trigger_index="51" type="unknown"/>
+            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[13]" storage_index="50" tap_mode="classic" trigger_index="50" type="unknown"/>
+            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[12]" storage_index="49" tap_mode="classic" trigger_index="49" type="unknown"/>
+            <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[11]" storage_index="48" tap_mode="classic" trigger_index="48" type="unknown"/>
+            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[10]" storage_index="47" tap_mode="classic" trigger_index="47" type="unknown"/>
+            <net data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[9]" storage_index="77" tap_mode="classic" trigger_index="77" type="unknown"/>
+            <net data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[8]" storage_index="76" tap_mode="classic" trigger_index="76" type="unknown"/>
+            <net data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[7]" storage_index="75" tap_mode="classic" trigger_index="75" type="unknown"/>
+            <net data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[6]" storage_index="74" tap_mode="classic" trigger_index="74" type="unknown"/>
+            <net data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[5]" storage_index="73" tap_mode="classic" trigger_index="73" type="unknown"/>
+            <net data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[4]" storage_index="72" tap_mode="classic" trigger_index="72" type="unknown"/>
+            <net data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[3]" storage_index="71" tap_mode="classic" trigger_index="71" type="unknown"/>
+            <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[2]" storage_index="68" tap_mode="classic" trigger_index="68" type="unknown"/>
+            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[1]" storage_index="57" tap_mode="classic" trigger_index="57" type="unknown"/>
+            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_lba[0]" storage_index="46" tap_mode="classic" trigger_index="46" type="unknown"/>
+          </bus>
+          <net data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_wr" storage_index="79" tap_mode="classic" trigger_index="79" type="unknown"/>
+          <net data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_rd" storage_index="78" tap_mode="classic" trigger_index="78" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="emu:emu|rk11:rkdisk|sdspi:sd1|sd_ack" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+        </setup_view>
+        <trigger_in_editor bit_condition="rising edge" is_enabled="true" is_node_post_fitting="false" node_name="emu:emu|rk11:rkdisk|sdspi:sd1|sdcard_read_start"/>
+        <trigger_out_editor/>
+      </presentation>
+      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2021/03/28 16:04:45  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1024" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="rising edge" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no" trigger_in="high"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+          <custom_flow_control>
+            <flow_expression><![CDATA[state ST1:
+trigger;]]>
+            </flow_expression>
+            <runtime_configurable comparison_operator="yes" counter_action="no" flag_action="no" logical_operator="yes" numerical_value="yes" state_transition="yes"/>
+            <power_up_flow_expression><![CDATA[state ST1:
+trigger;]]>
+            </power_up_flow_expression>
+          </custom_flow_control>
+        </events>
+        <storage_qualifier_events>
+          <transitional>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+            <pwr_up_transitional>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+      </trigger>
+    </signal_set>
+  </instance>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="hierarchy widget height" value="96"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <single attribute="lock mode" value="0"/>
+    <single attribute="sof manager visible" value="0"/>
+    <multi attribute="column width" size="23" value="34,34,459,74,68,78,95,96,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
+    <multi attribute="frame size" size="2" value="1920,1137"/>
+    <multi attribute="jtag widget size" size="2" value="348,135"/>
+  </global_info>
+</session>
