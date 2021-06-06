@@ -1,4 +1,4 @@
-# Template core for MiSTer
+# DVK MC1201 (PDP-11 compatible Soviet computer) for [MiSTer Board](https://github.com/MiSTer-devel/Main_MiSTer/wiki)
 
 ## General description
 This core contains the latest version of framework and will be updated when framework is updated. There will be no releases. This core is only for developers. Besides the framework, core demonstrates the basic usage. New or ported cores should use it as a template.
