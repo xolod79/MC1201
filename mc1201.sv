@@ -184,6 +184,7 @@ localparam CONF_STR = {
 	"O4,Timer,On,Off;",
 	"O5,CPU slow,Off,On;",
 	"O6,Console,Termianl,UART;",
+	"OAB,Disk bank,0,1,2,3;",
 	"R3,ODT;",
 	"-;",
    "T7,Reset Terminal;",
@@ -395,7 +396,7 @@ wire nbuzzer;
 wire buzzer=~nbuzzer;
 
 // линии выбор дисковых банков
-wire [1:0] diskbank;
+wire [1:0] sw_diskbank;
 
 // флаг выбора консольного порта, 0 - терминальный модуль, 1 - ИРПС 2
 wire  console_selector;       
@@ -446,7 +447,7 @@ assign		timer_on = ~status[4];	// выключатель таймерного п
 //************************************************
 //* Переключатели конфигурации
 //************************************************
-assign diskbank = 0;       // выбор дискового банка на SD-карте
+assign sw_diskbank = status[11:10];       // выбор дискового банка на SD-карте
 assign console_selector = status[6]; // подключение консольного порта (0 - терминал, 1 - внешние линии UART)
 assign cpuslow = status[5];          // включение режима замедления процессора
 
