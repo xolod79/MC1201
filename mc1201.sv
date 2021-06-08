@@ -856,7 +856,7 @@ rk11 rkdisk (
    .sdmode(`RK_sdmode),           // режим ведущего-ведомого
    
 // Адрес массива дисков на карте
-   .start_offset({6'b000000,diskbank,18'h0}),
+   .start_offset({1'b0,sw_diskbank,18'h0}),
 
 // отладочные сигналы
    .sdcard_debug(rksddebug)
@@ -907,7 +907,7 @@ dw hdd(
    .sdmode(`DW_sdmode),          
 
 // Адрес массива дисков на карте
-   .start_offset({6'b000000,diskbank,18'hc000}),
+   .start_offset({1'b0,sw_diskbank,18'hc000}),
    
 // отладочные сигналы
    .sdcard_debug(dwsddebug)
@@ -956,7 +956,7 @@ rx01 dxdisk (
    .sdclock(sdclock),
    
 // Адрес массива дисков на карте
-   .start_offset({6'b000000,diskbank,18'h2c000}),
+   .start_offset({1'b0,sw_diskbank,18'h2c000}),
    
 // отладочные сигналы
    .sdcard_debug(rxsddebug)
@@ -1027,7 +1027,7 @@ fdd_my mydisk (
    .sdmode(`MY_sdmode),          
    
 // Адрес массива дисков на карте
-   .start_offset({6'b000000,diskbank,18'h2e000}),
+   .start_offset({1'b0,sw_diskbank,18'h2e000}),
 
 // отладочные сигналы
    .sdcard_debug(mysddebug)
@@ -1043,7 +1043,29 @@ assign my_irq=1'b0;
 //**********************************
 //*  Диспетчер доступа к SD-карте
 //**********************************
-always @(posedge wb_clk) 
+//always @(posedge wb_clk) 
+reg [1:0] my_sdreq_filter;
+reg [1:0] rk_sdreq_filter;
+reg [1:0] dw_sdreq_filter;
+reg [1:0] dx_sdreq_filter;
+
+// фильтрация сигналов запроса
+always @(posedge sdclock) begin
+  my_sdreq_filter[0]=my_sdreq;
+  my_sdreq_filter[1]=my_sdreq_filter[0];
+  
+  dx_sdreq_filter[0]=dx_sdreq;
+  dx_sdreq_filter[1]=dx_sdreq_filter[0];
+  
+  dw_sdreq_filter[0]=dw_sdreq;
+  dw_sdreq_filter[1]=dw_sdreq_filter[0];
+  
+  rk_sdreq_filter[0]=rk_sdreq;
+  rk_sdreq_filter[1]=rk_sdreq_filter[0];
+end  
+  
+always @(posedge sdclock) begin
+   // сброс
    if (sys_init == 1'b1) begin
       rk_sdack <= 1'b0;
       dw_sdack <= 1'b0;
@@ -1055,16 +1077,17 @@ always @(posedge wb_clk)
     if ((rk_sdack == 1'b0) && (dw_sdack == 1'b0) && (dx_sdack == 1'b0) && (my_sdack == 1'b0)) begin 
        // неактивное состояние - ищем источник запроса 
        if (rk_sdreq == 1'b1) rk_sdack <=1'b1;
-       else if (dw_sdreq == 1'b1) dw_sdack <=1'b1;
-       else if (dx_sdreq == 1'b1) dx_sdack <=1'b1;
-       else if (my_sdreq == 1'b1) my_sdack <=1'b1;
+       else if (dw_sdreq_filter[1] == 1'b1) dw_sdack <=1'b1;
+       else if (dx_sdreq_filter[1] == 1'b1) dx_sdack <=1'b1;
+       else if (my_sdreq_filter[1] == 1'b1) my_sdack <=1'b1;
     end    
     else 
     // активное состояние - ждем освобождения карты
-       if ((rk_sdack == 1'b1) && rk_sdreq == 1'b0) rk_sdack <= 1'b0;
-       else if ((dw_sdack == 1'b1) && (dw_sdreq == 1'b0)) dw_sdack <= 1'b0;
-       else if ((dx_sdack == 1'b1) && (dx_sdreq == 1'b0)) dx_sdack <= 1'b0;
-       else if ((my_sdack == 1'b1) && (my_sdreq == 1'b0)) my_sdack <= 1'b0;
+       if ((rk_sdack == 1'b1) && rk_sdreq_filter[1] == 1'b0) rk_sdack <= 1'b0;
+       else if ((dw_sdack == 1'b1) && (dw_sdreq_filter[1] == 1'b0)) dw_sdack <= 1'b0;
+       else if ((dx_sdack == 1'b1) && (dx_sdreq_filter[1] == 1'b0)) dx_sdack <= 1'b0;
+       else if ((my_sdack == 1'b1) && (my_sdreq_filter[1] == 1'b0)) my_sdack <= 1'b0;
+end
    
 //**********************************
 //* Мультиплексор линий SD-карты
