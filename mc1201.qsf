@@ -58,26 +58,4 @@ set_global_assignment -name USE_SIGNALTAP_FILE stp2.stp
 set_global_assignment -name SDC_FILE altera.sdc
 set_global_assignment -name CDF_FILE jtag.cdf
 set_global_assignment -name QIP_FILE sys/sys.qip
-set_global_assignment -name VHDL_FILE rtl/bram.vhd
-set_global_assignment -name VERILOG_FILE rtl/memory.v
-set_global_assignment -name VERILOG_FILE rtl/sdspi.v
-set_global_assignment -name VERILOG_FILE rtl/rx01.v
-set_global_assignment -name VERILOG_FILE rtl/rk11.v
-set_global_assignment -name VERILOG_FILE "rtl/kgd-graphics.v"
-set_global_assignment -name VERILOG_FILE "rtl/fdd-my.v"
-set_global_assignment -name VERILOG_FILE rtl/dw.v
-set_global_assignment -name VERILOG_FILE rtl/sectorbuf.v
-set_global_assignment -name VERILOG_FILE rtl/wbc_vic.v
-set_global_assignment -name VERILOG_FILE rtl/wbc_uart.v
-set_global_assignment -name VERILOG_FILE rtl/wbc_rst.v
-set_global_assignment -name VERILOG_FILE rtl/vm2/vm2_wb.v
-set_global_assignment -name VERILOG_FILE rtl/vm2/vm2_plm.v
-set_global_assignment -name VERILOG_FILE rtl/ksm/vtreset.v
-set_global_assignment -name VERILOG_FILE rtl/ksm/vregs.v
-set_global_assignment -name VERILOG_FILE rtl/ksm/vga.v
-set_global_assignment -name VERILOG_FILE rtl/ksm/ps2.v
-set_global_assignment -name VERILOG_FILE hdl/ksm/ksm_vic.v
-set_global_assignment -name VERILOG_FILE rtl/ksm/ksm.v
-set_global_assignment -name VERILOG_FILE rtl/config.v
-set_global_assignment -name SYSTEMVERILOG_FILE mc1201.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
