@@ -698,8 +698,8 @@ ksm  terminal(
 );
 `else
 assign nbuzzer=1'b0;
-assign vgah=1'b0;
-assign vgav=1'b0;
+assign HSync=1'b0;
+assign VSync=1'b0;
 assign vgared_t=1'b0;
 assign vgagreen_t=1'b0;
 assign vgablue_t=1'b0;

@@ -73,7 +73,7 @@ assign local_dat_i = (rom_stb   ? rom_dat   : cpu_dat_i);
 // Признак активной транзакции на общей шине - если адрес [16]==0. 
 // При adr[16]==1 транзакция локальная - с теневым ПЗУ или ОЗУ.
 //assign cpu_cyc_o=local_cyc & (~full_adr[16]);
-assign cpu_cyc_o=local_cyc;
+assign cpu_cyc_o=local_cyc;  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // Выход адреса на общую шину 
 assign cpu_adr_o=full_adr[15:0];
