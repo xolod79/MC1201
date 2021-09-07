@@ -257,7 +257,6 @@ wire        sys_clk_p;
 wire        sys_clk_n;                 
 wire        sys_init;                  // Main reset
 wire        sys_plock;                 // PLL ready
-wire        timer_50;                  // выход интервального таймера
 wire        terminal_rst;
 
 // WISHBONE BUS
@@ -307,10 +306,12 @@ wire rk11_ack;
 wire lpt_ack;
 wire dw_ack;
 wire rx_ack;
-wire rk11_dma_ack;
 wire my_ack;
-wire my_dma_ack;
 wire kgd_ack;
+
+// линии подтверждения, входящие в DMA-контроллеры устройств
+wire rk11_dma_ack;
+wire my_dma_ack;
 
 //  Шины данных от периферии
 wire [15:0] uart1_dat;
@@ -435,7 +436,7 @@ assign		timer_on = ~status[4];	// выключатель таймерного п
 //************************************************
 //* Переключатели конфигурации
 //************************************************
-assign sw_diskbank = status[11:10];       // выбор дискового банка на SD-карте
+assign sw_diskbank = status[11:10];  // выбор дискового банка на SD-карте
 assign console_selector = status[6]; // подключение консольного порта (0 - терминал, 1 - внешние линии UART)
 assign cpuslow = status[5];          // включение режима замедления процессора
 
@@ -468,8 +469,7 @@ wbc_rst reset
    .sys_ready(dr_ready),        // вход готовности системных компонентов (влияет на sys_rst)
    .sys_dclo(vm_dclo_in),   
    .sys_aclo(vm_aclo_in),
-   .global_reset(global_reset), // выход кнопки сброса 
-   .sys_irq(timer_50)           // сигнал прерывания таймера с частотой 50 Гц.
+   .global_reset(global_reset)  // выход кнопки сброса 
 );
 
 //**********************************************************
@@ -506,10 +506,10 @@ mc1201_02 cpu(
    .ivec(vm_ivec),                 // Шина приема вектора прерывания
    .istb(vm_istb),                 // Строб приема вектора прерывания
    .iack(vm_iack),                 // Подтверждение приема вектора прерывания
-	
-	.timer_50(timer_50),            // Сигнал таймерного прерывания 50 Гц
-	.timer_button(timer_switch),    // кнопка включения-отключения таймера
-	.timer_status(timer_on)         // линия индикатора состояния таймера
+   
+   .timer_button(timer_switch),    // кнопка включения-отключения таймера
+   .timer_status(timer_on)         // линия индикатора состояния таймера
+   
 );
 
 //**********************************
@@ -1141,7 +1141,6 @@ wbc_vic #(.N(9)) vic
    .wb_dat_o(vm_ivec),
    .wb_stb_i(vm_istb),
    .wb_ack_o(vm_iack),
-   .rsel(16'o0),    // содержимое регистра безадресного чтения
 //         UART1-Tx     UART1-Rx   UART2-Tx    UART2-Rx     RK-11D        IRPR           DW         RX-11         MY  
    .ivec({16'o000064, 16'o000060, 16'o000334,  16'o000330, 16'o000220,  16'o000330, 16'o000300, 16'o000264, 16'o000170 }),   // векторы
    .ireq({irpstx_irq, irpsrx_irq, irpstx2_irq, irpsrx2_irq, rk11_irq,     lpt_irq,    dw_irq,     rx_irq,      my_irq  }),   // запрос прерывания
