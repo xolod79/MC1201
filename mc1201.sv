@@ -420,10 +420,10 @@ assign VGA_R = {8{vgared}};
 //***************************************************
 //*    Кнопки
 //***************************************************
-assign		reset_key = ~(RESET | buttons[1] | status[0]);    // кнопка сброса
-assign		terminal_rst = ~reset_key;  // сброс терминального модуля - от кнопки и автоматически по готовности PLL
-assign		console_switch = status[3]; // кнопка "пульт"
-assign		timer_on = ~status[4];	// выключатель таймерного прерывания
+assign      reset_key = ~(RESET | buttons[1] | status[0]);    // кнопка сброса
+assign      terminal_rst = ~reset_key;  // сброс терминального модуля - от кнопки и автоматически по готовности PLL
+assign      console_switch = status[3]; // кнопка "пульт"
+assign      timer_on = status[4];       // выключатель таймерного прерывания
  
 //********************************************
 //* Светодиоды
@@ -523,12 +523,23 @@ memory #(15) ram
    .wb_we_i(wb_we),
    .wb_dat_i(wb_out),
    .wb_dat_o(ram_dat),
-   .wb_cyc_i(wb_cyc),
+   .wb_cyc_i(ram_stb),
    .wb_stb_i(ram_stb),
    .wb_sel_i(wb_sel),
    .wb_ack_o(ram_ack)
 );
+/*// формирователь сигнала подверждения транзакции
+reg [1:0]dack;
 
+//assign ram_ack = ram_stb & (dack[1]);
+assign ram_ack = ram_stb & (dack[1] | wb_we);
+// задержка сигнала подтверждения на 1 такт clk
+always @ (posedge wb_clk)  begin
+//   dack[0] <= ram_stb & (sdr_rd_ack | sdr_wr_ack);
+   dack[0] <= ram_stb;
+   dack[1] <= ram_stb & dack[0];
+end
+*/
 assign dr_ready = 1;
 
 //**********************************
@@ -588,9 +599,9 @@ assign uart2_speed = baud2;
 `endif
 
 //**********************************
-//*     ирпс1 (console)
+//*     ирпс1 (консоль)
 //**********************************
-wbc_uart uart
+wbc_uart #(.REFCLK(`clkref)) uart1
 (
    .wb_clk_i(wb_clk),
    .wb_rst_i(sys_init),
@@ -622,7 +633,7 @@ wbc_uart uart
 //*     ирпс2
 //**********************************
 `ifdef IRPS2_module
-wbc_uart uart2
+wbc_uart #(.REFCLK(`clkref)) uart2
 (
    .wb_clk_i(wb_clk),
    .wb_rst_i(sys_init),

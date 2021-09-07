@@ -45,8 +45,7 @@ reg[7:0] vram_odd[1023:0];          // нечетные байты
 //************************************
 //* ROM знакогенератора с шрифтами 
 //************************************
-//spram #(15,1,`fontrom_file) fontrom0 (
-spram #(15,1,"./ksm-firmware/font/font-main.mif") fontrom0 (
+spram #(15,1,`fontrom_file) fontrom0 (
       .address(font_adr), 
       .clock(clk50), 
       .q(pixel)

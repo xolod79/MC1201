@@ -37,5 +37,4 @@ set_global_assignment -name VERILOG_FILE rtl/ksm/vga.v
 set_global_assignment -name VERILOG_FILE rtl/ksm/ps2.v
 set_global_assignment -name VERILOG_FILE rtl/ksm/ksm_vic.v
 set_global_assignment -name VERILOG_FILE rtl/ksm/ksm.v
-set_global_assignment -name VERILOG_FILE rtl/config.v
 set_global_assignment -name SYSTEMVERILOG_FILE mc1201.sv
