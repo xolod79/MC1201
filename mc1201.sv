@@ -568,14 +568,14 @@ wire [31:0] baud2;        // делитель скорости второго п
 // Согласование скорости с терминальным модулем
 wire [31:0]   terminal_baud;    // делитель, соответствующий текущей скорости терминала                     
 assign  terminal_baud = 
-  (vspeed == 3'd0)   ? 32'd767: // 1200
-  (vspeed == 3'd1)   ? 32'd383: // 2400
-  (vspeed == 3'd2)   ? 32'd191: // 4800
-  (vspeed == 3'd3)   ? 32'd95:  // 9600
-  (vspeed == 3'd4)   ? 32'd47:  // 19200
-  (vspeed == 3'd5)   ? 32'd23:  // 38400
-  (vspeed == 3'd6)   ? 32'd15:  // 57600
-                       32'd7;   // 115200
+  (vspeed == 3'd0)   ? 32'd767: 32'D0 | // 1200
+  (vspeed == 3'd1)   ? 32'd383: 32'D0 | // 2400
+  (vspeed == 3'd2)   ? 32'd191: 32'D0 | // 4800
+  (vspeed == 3'd3)   ? 32'd95: 32'D0 |  // 9600
+  (vspeed == 3'd4)   ? 32'd47: 32'D0 |  // 19200
+  (vspeed == 3'd5)   ? 32'd23: 32'D0 |  // 38400
+  (vspeed == 3'd6)   ? 32'd15: 32'D0 |  // 57600
+  (vspeed == 3'd6)   ? 32'd7:  32'D0 ;  // 115200
                        
 // Выбор скорости второго UART                        
 // assign  baud2 = 921600/`UART2SPEED-1;
@@ -613,14 +613,14 @@ wbc_uart #(.REFCLK(`clkref)) uart1
    .wb_stb_i(uart1_stb),
    .wb_ack_o(uart1_ack),
 
-   .tx_dat_o(uart1_txd),
-   .rx_dat_i(uart1_rxd),
+   .txd(uart1_txd),
+   .rxd(uart1_rxd),
 
    .tx_cts_i(1'b0),
    .tx_irq_o(irpstx_irq),
-   .tx_ack_i(irpstx_iack),
+   .tx_iack_i(irpstx_iack),
    .rx_irq_o(irpsrx_irq),
-   .rx_ack_i(irpsrx_iack),
+   .rx_iack_i(irpsrx_iack),
 
    .cfg_bdiv(uart1_speed),
    .cfg_nbit(2'b11),
@@ -646,13 +646,13 @@ wbc_uart #(.REFCLK(`clkref)) uart2
    .wb_ack_o(uart2_ack),
 
    .tx_cts_i(1'b0),
-   .tx_dat_o(uart2_txd),
-   .rx_dat_i(uart2_rxd),
+   .txd(uart2_txd),
+   .rxd(uart2_rxd),
 
    .tx_irq_o(irpstx2_irq),
-   .tx_ack_i(irpstx2_iack),
+   .tx_iack_i(irpstx2_iack),
    .rx_irq_o(irpsrx2_irq),
-   .rx_ack_i(irpsrx2_iack),
+   .rx_iack_i(irpsrx2_iack),
 
    .cfg_bdiv(uart2_speed),
    .cfg_nbit(2'b11),
