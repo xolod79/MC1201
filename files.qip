@@ -8,6 +8,7 @@ set_global_assignment -name VERILOG_FILE rtl/memory.v
 set_global_assignment -name VERILOG_FILE rtl/sdspi.v
 set_global_assignment -name VERILOG_FILE rtl/rx01.v
 set_global_assignment -name VERILOG_FILE rtl/rk11.v
+set_global_assignment -name VERILOG_FILE rtl/rk611.v
 set_global_assignment -name VERILOG_FILE rtl/kgd-graphics.v
 set_global_assignment -name VERILOG_FILE rtl/fdd-my.v
 set_global_assignment -name VERILOG_FILE rtl/dw.v
