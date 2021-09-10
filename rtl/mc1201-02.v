@@ -104,7 +104,7 @@ reg [4:0] cpudelay;
 reg cpu_clk_enable;
 
 always @ (posedge clk_p) begin
-    if (cpudelay != 5'd21) begin
+    if (cpudelay != 5'd`CPUSLOW) begin
         cpudelay <= cpudelay + 1'b1;  // считаем от 0 до 22
         cpu_clk_enable <= 1'b0;
     end     
@@ -211,7 +211,13 @@ end
 //**********************************
 //* Сигнал разрешения таймера
 //**********************************
-initial timer_status=`timer_init;  // начальное состояние таймера
+
+// начальное состояние таймера
+`ifdef timer_init
+initial timer_status=`timer_init;  
+`else
+initial timer_status=1'b1;  
+`endif
 reg [1:0] tbshift;
 reg tbevent;
 

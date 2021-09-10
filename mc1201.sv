@@ -187,7 +187,7 @@ localparam CONF_STR = {
 	"OAB,Disk bank,0,1,2,3;",
 	"R3,ODT;",
 	"-;",
-   "T7,Reset Terminal;",
+	"T7,Reset Terminal;",
 	"R0,Reset;",
 	"V,v",`BUILD_DATE 
 };
@@ -195,8 +195,8 @@ localparam CONF_STR = {
 wire forced_scandoubler;
 wire  [1:0] buttons;
 wire [31:0] status;
-wire			ps2_clk;
-wire			ps2_data;
+wire        ps2_clk;
+wire        ps2_data;
 
 wire [31:0] sd_lba;
 wire        sd_rd;
@@ -249,17 +249,126 @@ hps_io #(.STRLEN($size(CONF_STR)>>3), .PS2DIV(3200), .WIDE(1)) hps_io
 	
 );
 
-//////////////////////////////////////////////////////////////////
-wire [2:0] vspeed;   // index speed console port
+reg vsd_sel = 0;
+wire vsdmiso;
+always @(posedge clk_sys) if(img_mounted) vsd_sel <= |img_size;
+
+wire sdcard_miso = vsd_sel ? vsdmiso : SD_MISO;
+assign SD_CS   = sdcard_cs | vsd_sel;
+assign SD_SCK  = sdcard_sclk & ~vsd_sel;
+assign SD_MOSI = sdcard_mosi & ~vsd_sel;
+
+reg sd_act;
+
+always @(posedge clk_sys) begin
+	reg old_mosi, old_miso;
+	integer timeout = 0;
+
+	old_mosi <= sdcard_mosi;
+	old_miso <= sdcard_miso;
+
+	sd_act <= 0;
+	if(timeout < 1000000) begin
+		timeout <= timeout + 1;
+		sd_act <= 1;
+	end
+
+	if((old_mosi ^ sdcard_mosi) || (old_miso ^ sdcard_miso)) timeout <= 0;
+end
+
+sd_card #(.WIDE(1)) sd_card
+(
+	.clk_sys(clk_sys),
+	.sdhc(1),
+
+	.sd_ack(sd_ack),
+	.sd_ack_conf(sd_ack_conf),
+	.sd_rd(sd_rd),
+	.sd_wr(sd_wr),
+	.sd_lba(sd_lba),
+	.sd_buff_addr(sd_buff_addr),
+	.sd_buff_din(sd_buff_din),
+	.sd_buff_dout(sd_buff_dout),
+	.sd_buff_wr(sd_buff_wr),
+
+	.clk_spi(clk_sys),
+
+	.sck(sdcard_sclk),
+	.ss(sdcard_cs | ~vsd_sel),
+	.mosi(sdcard_mosi),
+	.miso(vsdmiso)
+);
 
 wire        clk_sys;
-wire        sys_clk_p;                 
-wire        sys_clk_n;                 
-wire        sys_init;                  // Main reset
-wire        sys_plock;                 // PLL ready
-wire        terminal_rst;
+wire        clk_p;                 
+wire        clk_n;                 
+wire        clkrdy;         // PLL ready
+wire        sdclock;        // тактирование SD-карты
 
-// WISHBONE BUS
+wire        bt_terminal_rst;
+wire        bt_timer;       // выключатель таймера
+wire        bt_halt;        // пультовое прерывание
+wire        reset_key;      // кнопка сброса
+wire [1:0]  sw_diskbank;    // линии выбор дисковых банков
+wire        sw_console;     // флаг выбора консольного порта, 0 - терминальный модуль, 1 - ИРПС 2
+wire        sw_cpuslow;     // включение режима замедления процессора
+wire   sdram_ready;         // флаг готовности динамической памяти.
+assign sdram_ready = 1;
+
+wire vgagreen, vgablue, vgared; // выбор яркости каждого цвета  - сигнал, подаваемый на видео-ЦАП для светящейся и темной точки.   
+assign VGA_G = {8{vgagreen}};
+assign VGA_B = {8{vgablue}};
+assign VGA_R = {8{vgared}};
+
+//***************************************************
+//*    Кнопки
+//***************************************************
+assign      reset_key = ~(RESET | buttons[1] | status[0]);    // кнопка сброса
+assign      bt_terminal_rst = ~reset_key;  // сброс терминального модуля - от кнопки и автоматически по готовности PLL
+assign      bt_halt = status[3];           // кнопка "пульт"
+assign      timer_on = status[4];          // выключатель таймерного прерывания
+
+//************************************************
+//* Переключатели конфигурации
+//************************************************
+assign sw_diskbank = status[11:10]; // выбор дискового банка на SD-карте
+assign sw_console = status[6];      // подключение консольного порта (0 - терминал, 1 - внешние линии UART)
+assign sw_cpuslow = status[5];      // включение режима замедления процессора
+
+//************************************************
+//* тактовый генератор 
+//************************************************
+pll pll
+(
+	.refclk(CLK_50M),
+	.rst(0),
+	.outclk_0(clk_p),    // 100МГц прямая фаза, основная тактовая частота
+	.outclk_1(clk_n),    // 100МГц инверсная фаза
+	.outclk_2(sdclock),  // 12.5 МГц тактовый сигнал SD-карты
+	.outclk_3(clk_sys),  // 50МГц прямая фаза, основная тактовая частота
+	.locked(clkrdy)	     // флаг готовности PLL	
+);
+
+//**********************************
+//* Модуль RAM
+//**********************************
+memory #(15) ram
+(  .wb_clk_i(wb_clk),
+   .wb_adr_i(wb_adr[15:1]),
+   .wb_we_i(wb_we),
+   .wb_dat_i(wb_out),
+   .wb_dat_o(ram_dat),
+   .wb_cyc_i(ram_stb),
+   .wb_stb_i(ram_stb),
+   .wb_sel_i(wb_sel),
+   .wb_ack_o(ram_ack)
+);
+
+wire [2:0] vspeed;   // индекс скорости порта
+
+wire        sys_init;         // общий сброс
+
+// шина WISHBONE                                       
 wire        wb_clk;                    
 wire [15:0] wb_adr;                    
 wire [15:0] wb_out;                    
@@ -328,15 +437,12 @@ wire [15:0] rx_dat;
 wire [15:0] my_dat;
 wire [15:0] kgd_dat;
 
-// флаг готовности динамической памяти.
-wire        dr_ready;                           
 
 // линии процессорных сбросов и прерываний                                       
 wire        vm_init_out;               // выход сброса от процессора к устройствам на шине
 wire        vm_dclo_in;                // вход сброса
 wire        vm_aclo_in;                // прерывание по аварии питания
 wire        vm_virq;                   // запрос векторного прерывания
-wire        vm_halt;                   // пультовое прерывание
 
 // линии прерывания внешних устройств                                       
 wire        irpstx_irq, irpstx_iack;            
@@ -351,12 +457,8 @@ wire        rx_irq, rx_iack;
 wire        my_irq, my_iack;
 
 wire        global_reset;   // кнопка сброса
-wire        console_switch; // кнопка "пульт"
-wire        timer_switch; 	 // выключатель таймерного прерывания
-wire        reset_key;      // кнопка сброса
 
 // Линии обмена с SD-картой от разных контроллеров
-wire         sdclock;       // тактирование SD-карты
 wire         rk_mosi;       // mosi от RK11
 wire         rk_cs;         // cs от RK11
 wire         rk_sclk;       // sclk от RK11
@@ -388,21 +490,13 @@ reg         my_sdack;
 wire        timer_on;       // разрешение таймера
 
 // линии невекторных прерываний 
-assign      sys_init = vm_init_out;          // сброс
-assign      vm_halt  = console_switch;       // переключатель программа-пульт
+assign      sys_init = vm_init_out;   // сброс
 
 // пищалка
 wire nbuzzer;
 wire buzzer=~nbuzzer;
 
-// линии выбор дисковых банков
-wire [1:0] sw_diskbank;
-
-// флаг выбора консольного порта, 0 - терминальный модуль, 1 - ИРПС 2
-wire  console_selector;       
-
-// включение режима замедления процессора
-wire cpuslow;
+assign wb_clk=clk_p;
 
 //************************************
 //*            VGA
@@ -416,24 +510,11 @@ wire genable;       // включение графического видеов�
 wire tdisable;      // отключение текстового видеовыхода
 
 // Селектор источника видео
-wire vgagreen, vgablue, vgared;
-// цвета - складываем видеопотоки от обоих видеоконтроллеров
+// складываем видеопотоки от обоих видеоконтроллеров
 assign vgagreen = (genable & vgavideo_g) | (~tdisable & vgagreen_t);
 assign vgared   = (genable & vgavideo_g) | (~tdisable & vgared_t);
 assign vgablue  = (genable & vgavideo_g) | (~tdisable & vgablue_t);
 
-// выбор яркости каждого цвета  - сигнал, подаваемый на видео-ЦАП для светящейся и темной точки.   
-assign VGA_G = {8{vgagreen}};
-assign VGA_B = {8{vgablue}};
-assign VGA_R = {8{vgared}};
-
-//***************************************************
-//*    Кнопки
-//***************************************************
-assign      reset_key = ~(RESET | buttons[1] | status[0]);    // кнопка сброса
-assign      terminal_rst = ~reset_key;  // сброс терминального модуля - от кнопки и автоматически по готовности PLL
-assign      console_switch = status[3]; // кнопка "пульт"
-assign      timer_on = status[4];       // выключатель таймерного прерывания
  
 //********************************************
 //* Светодиоды
@@ -445,40 +526,17 @@ assign      timer_on = status[4];       // выключатель таймерн
 //assign dx_led = ~dx_sdreq;   // запрос обмена диска DX
 //assign timer_led = ~timer_on;   // индикация включения таймера
 
-//************************************************
-//* Переключатели конфигурации
-//************************************************
-assign sw_diskbank = status[11:10];  // выбор дискового банка на SD-карте
-assign console_selector = status[6]; // подключение консольного порта (0 - терминал, 1 - внешние линии UART)
-assign cpuslow = status[5];          // включение режима замедления процессора
-
-//************************************************
-//* тактовый генератор 
-//************************************************
-assign wb_clk  = sys_clk_p;
-
-pll pll
-(
-	.refclk(CLK_50M),
-	.rst(0),
-	.outclk_0(sys_clk_p),    // 100МГц прямая фаза, основная тактовая частота
-	.outclk_1(sys_clk_n),    // 100МГц инверсная фаза
-	.outclk_2(sdclock),      // 12.5 МГц тактовый сигнал SD-карты
-	.outclk_3(clk_sys),		 // 50МГц прямая фаза, основная тактовая частота
-	.locked(sys_plock)		 // флаг готовности PLL	
-);
-
 //**************************************************************
-//*   Модуль формирования сбросов и сетевой таймер
+//*   Модуль формирования сбросов
 //**************************************************************
 
 wbc_rst reset
 (
    .osc_clk(clk_sys),           // основной клок 50 МГц
    .sys_clk(wb_clk),            // сигнал синхронизации  wishbone
-   .pll_lock(sys_plock),        // сигнал готовности PLL
+   .pll_lock(clkrdy),           // сигнал готовности PLL
    .button(reset_key),          // кнопка сброса
-   .sys_ready(dr_ready),        // вход готовности системных компонентов (влияет на sys_rst)
+   .sys_ready(sdram_ready),     // вход готовности системных компонентов (влияет на sys_rst)
    .sys_dclo(vm_dclo_in),   
    .sys_aclo(vm_aclo_in),
    .global_reset(global_reset)  // выход кнопки сброса 
@@ -489,9 +547,9 @@ wbc_rst reset
 //**********************************************************
 mc1201_02 cpu(
 // Синхросигналы  
-   .clk_p(sys_clk_p),              // Положительный синхросигнал
-   .clk_n(sys_clk_n),              // Отрицательный синхросигнал
-   .cpuslow(cpuslow),              // Режим замедления процессора
+   .clk_p(clk_p),
+   .clk_n(clk_n),
+   .cpuslow(sw_cpuslow),              // Режим замедления процессора
 
 // Шина Wishbone                                       
    .cpu_gnt_i(cpu_access_req),     // 1 - разрешение cpu работать с шиной
@@ -511,7 +569,7 @@ mc1201_02 cpu(
    .vm_init(vm_init_out),          // Выход сброса для периферии
    .dclo(vm_dclo_in),              // Вход сброса процессора
    .aclo(vm_aclo_in),              // Сигнал аварии питания
-   .halt(vm_halt),                 // Прерывание входа в пультовоый режим
+   .halt(bt_halt),                 // Прерывание входа в пультовоый режим
    .virq(vm_virq),                 // Векторное прерывание
 
 // Шины обработки прерываний                                       
@@ -519,40 +577,33 @@ mc1201_02 cpu(
    .istb(vm_istb),                 // Строб приема вектора прерывания
    .iack(vm_iack),                 // Подтверждение приема вектора прерывания
    
-   .timer_button(timer_switch),    // кнопка включения-отключения таймера
+   .timer_button(bt_timer),    // кнопка включения-отключения таймера
    .timer_status(timer_on)         // линия индикатора состояния таймера
    
 );
 
 //**********************************
-//* Модуль RAM
+//* Пзу пользователя 140000-157777
 //**********************************
+/*`ifdef userrom
+reg rom_ack0;
+reg rom_ack1;
 
-memory #(15) ram
-(
-   .wb_clk_i(wb_clk),
-   .wb_adr_i(wb_adr[15:1]),
-   .wb_we_i(wb_we),
-   .wb_dat_i(wb_out),
-   .wb_dat_o(ram_dat),
-   .wb_cyc_i(ram_stb),
-   .wb_stb_i(ram_stb),
-   .wb_sel_i(wb_sel),
-   .wb_ack_o(ram_ack)
+user_rom rom(
+   .address(wb_adr[12:1]),
+   .clock(wb_clk),
+   .q(rom_dat)
 );
-/*// формирователь сигнала подверждения транзакции
-reg [1:0]dack;
-
-//assign ram_ack = ram_stb & (dack[1]);
-assign ram_ack = ram_stb & (dack[1] | wb_we);
-// задержка сигнала подтверждения на 1 такт clk
+// формирователь cигнала подверждения транзакции с задержкой на 1 такт
 always @ (posedge wb_clk)  begin
-//   dack[0] <= ram_stb & (sdr_rd_ack | sdr_wr_ack);
-   dack[0] <= ram_stb;
-   dack[1] <= ram_stb & dack[0];
+   rom_ack0 <= wb_cyc & rom_stb & ~wb_we;
+   rom_ack1 <= wb_cyc & rom_ack0 & ~wb_we;
 end
+assign rom_ack=rom_ack1;
+`else
+assign rom_ack=1'b0;
+`endif
 */
-assign dr_ready = 1;
 
 //**********************************
 // Выбор консольного порта
@@ -561,10 +612,10 @@ wire  uart1_txd, uart1_rxd;   // линии ИРПС 1
 wire  uart2_txd, uart2_rxd;   // линии ИРПС 2
 wire  terminal_tx,terminal_rx;// линии аппаратного терминала
 `ifdef KSM_module
-assign UART_TXD = (console_selector == 0)? uart2_txd : uart1_txd;
-assign terminal_rx = (console_selector == 0)? uart1_txd : uart2_txd;
-assign uart1_rxd = (console_selector == 0)? terminal_tx : UART_RXD;
-assign uart2_rxd = (console_selector == 0)? UART_RXD : terminal_tx;
+assign UART_TXD = (sw_console == 0)? uart2_txd : uart1_txd;
+assign terminal_rx = (sw_console == 0)? uart1_txd : uart2_txd;
+assign uart1_rxd = (sw_console == 0)? terminal_tx : UART_RXD;
+assign uart2_rxd = (sw_console == 0)? UART_RXD : terminal_tx;
 `else
 assign UART_TXD = uart1_txd;
 assign uart1_rxd = UART_RXD;
@@ -603,8 +654,8 @@ assign baud2 =
 
 // Селектор делителей скорости обоих портов в зависимости от того, кто из них подключен к терминалу
 `ifdef KSM_module
-assign uart1_speed = (console_selector == 0)? terminal_baud : baud2;
-assign uart2_speed = (console_selector == 0)? baud2 : terminal_baud;
+assign uart1_speed = (sw_console == 0)? terminal_baud : baud2;
+assign uart2_speed = (sw_console == 0)? baud2 : terminal_baud;
 `else
 assign uart1_speed = baud2;
 assign uart2_speed = baud2;
@@ -688,13 +739,13 @@ wire [9:0]  row;  // строка Y, 0-627
 
 `ifdef KSM_module
 
-ksm  terminal(
+ksm terminal(
    // VGA
-	.vgahs(HSync),
-	.vgavs(VSync),
-	.vgared(vgared_t),
-	.vgagreen(vgagreen_t),
-	.vgablue(vgablue_t),
+   .vgahs(vgah), 
+   .vgavs(vgav), 
+   .vgared(vgared_t),
+   .vgagreen(vgagreen_t),
+   .vgablue(vgablue_t),
    // Последовательный порт
    .tx(terminal_tx), 
    .rx(terminal_rx), 
@@ -711,7 +762,7 @@ ksm  terminal(
    .row(row),
    
    .clk50(clk_sys),
-   .reset(terminal_rst),         // сброс видеоподсистемы
+   .reset(bt_terminal_rst),         // сброс видеоподсистемы
 	
    .hblank(HBlank),
    .vblank(VBlank)
@@ -721,8 +772,8 @@ ksm  terminal(
 );
 `else
 assign nbuzzer=1'b0;
-assign HSync=1'b0;
-assign VSync=1'b0;
+assign vgah=1'b0;
+assign vgav=1'b0;
 assign vgared_t=1'b0;
 assign vgagreen_t=1'b0;
 assign vgablue_t=1'b0;
@@ -746,14 +797,14 @@ kgd graphics(
    
    .clk50(clk_sys),
    
-   .vreset(terminal_rst),  // сброс графической подсистемы
+   .vreset(bt_terminal_rst),  // сброс графической подсистемы
    .vgavideo(vgavideo_g),  // видеовыход 
    .col(col),              // счетчик видеостолбцов
    .row(row),              // счетчик видеострок
    .tdisable(tdisable),    // отключение тектового экрана
    .genable(genable)       // подключение графического экрана
 );
-`else
+`else 
 assign kgd_ack=1'b0;
 assign tdisable=1'b0;
 assign genable=1'b0;
@@ -1184,57 +1235,7 @@ wire sdcard_sclk =
          my_sdack? my_sclk:   // MY
          rk_sdack? rk_sclk:   // RK
                    `def_sclk;   // по умолчанию - контроллер с ведущим SDSPI
-                   
-reg vsd_sel = 0;
-wire vsdmiso;
-always @(posedge clk_sys) if(img_mounted) vsd_sel <= |img_size;
-
-wire sdcard_miso = vsd_sel ? vsdmiso : SD_MISO;
-assign SD_CS   = sdcard_cs | vsd_sel;
-assign SD_SCK  = sdcard_sclk & ~vsd_sel;
-assign SD_MOSI = sdcard_mosi & ~vsd_sel;
-
-reg sd_act;
-
-always @(posedge clk_sys) begin
-	reg old_mosi, old_miso;
-	integer timeout = 0;
-
-	old_mosi <= sdcard_mosi;
-	old_miso <= sdcard_miso;
-
-	sd_act <= 0;
-	if(timeout < 1000000) begin
-		timeout <= timeout + 1;
-		sd_act <= 1;
-	end
-
-	if((old_mosi ^ sdcard_mosi) || (old_miso ^ sdcard_miso)) timeout <= 0;
-end
-
-sd_card #(.WIDE(1)) sd_card
-(
-	.clk_sys(clk_sys),
-	.sdhc(1),
-
-	.sd_ack(sd_ack),
-	.sd_ack_conf(sd_ack_conf),
-	.sd_rd(sd_rd),
-	.sd_wr(sd_wr),
-	.sd_lba(sd_lba),
-	.sd_buff_addr(sd_buff_addr),
-	.sd_buff_din(sd_buff_din),
-	.sd_buff_dout(sd_buff_dout),
-	.sd_buff_wr(sd_buff_wr),
-
-	.clk_spi(clk_sys),
-
-	.sck(sdcard_sclk),
-	.ss(sdcard_cs | ~vsd_sel),
-	.mosi(sdcard_mosi),
-	.miso(vsdmiso)
-);
-
+            
 //**********************************
 //*  Контроллер прерываний
 //**********************************
@@ -1338,7 +1339,9 @@ assign rx_stb     = wb_stb & wb_cyc & (wb_adr[15:2] == (16'o177170 >> 2));   // 
 assign my_stb     = wb_stb & wb_cyc & (wb_adr[15:2] == (16'o172140 >> 2));   // MY - 172140-172142 
 assign kgd_stb    = wb_stb & wb_cyc & (wb_adr[15:3] == (16'o176640 >> 3));   // КГД - 176640-176646
 
-// Размещение основной памяти :  000000 - 160000 
+// ПЗУ пользователя
+
+// Размещение основной памяти :
 // + если требуется, добавляется служебная область памяти по сигналу sysram_stb процессорной платы
 // вариант без ПЗУ - RAM находится в пространстве 000000 - 157777 
 assign ram_stb =  (wb_stb & wb_cyc & (wb_adr[15:13] != 3'b111)) | sysram_stb;
@@ -1363,17 +1366,17 @@ assign wb_mux =
 ////////////-----------------------------------------------
 ///---------------------------------------------------------
 wire HBlank;
-wire HSync;
+wire vgah;
 wire VBlank;
-wire VSync;
+wire vgav;
 
 
 assign CLK_VIDEO = clk_sys;
 assign CE_PIXEL  = 1;
 
 assign VGA_DE = ~(HBlank | VBlank);
-assign VGA_HS = ~HSync;
-assign VGA_VS = ~VSync;
+assign VGA_HS = ~vgah;
+assign VGA_VS = ~vgav;
 assign VGA_SL    = 0;
 assign VGA_F1    = 0;
 assign VGA_SCALER= 0;
