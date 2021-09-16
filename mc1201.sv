@@ -216,7 +216,7 @@ wire  [7:0] uart_mode;
 
 hps_io #(.STRLEN($size(CONF_STR)>>3), .PS2DIV(3200), .WIDE(1)) hps_io
 (
-	.clk_sys(clk_sys),
+	.clk_sys(clk50),
 	.HPS_BUS(HPS_BUS),
 	.EXT_BUS(),
 	.gamma_bus(),
@@ -251,7 +251,7 @@ hps_io #(.STRLEN($size(CONF_STR)>>3), .PS2DIV(3200), .WIDE(1)) hps_io
 
 reg vsd_sel = 0;
 wire vsdmiso;
-always @(posedge clk_sys) if(img_mounted) vsd_sel <= |img_size;
+always @(posedge clk50) if(img_mounted) vsd_sel <= |img_size;
 
 wire sdcard_miso = vsd_sel ? vsdmiso : SD_MISO;
 assign SD_CS   = sdcard_cs | vsd_sel;
@@ -260,7 +260,7 @@ assign SD_MOSI = sdcard_mosi & ~vsd_sel;
 
 reg sd_act;
 
-always @(posedge clk_sys) begin
+always @(posedge clk50) begin
 	reg old_mosi, old_miso;
 	integer timeout = 0;
 
@@ -278,7 +278,7 @@ end
 
 sd_card #(.WIDE(1)) sd_card
 (
-	.clk_sys(clk_sys),
+	.clk_sys(clk50),
 	.sdhc(1),
 
 	.sd_ack(sd_ack),
@@ -291,7 +291,7 @@ sd_card #(.WIDE(1)) sd_card
 	.sd_buff_dout(sd_buff_dout),
 	.sd_buff_wr(sd_buff_wr),
 
-	.clk_spi(clk_sys),
+	.clk_spi(clk50),
 
 	.sck(sdcard_sclk),
 	.ss(sdcard_cs | ~vsd_sel),
@@ -299,7 +299,7 @@ sd_card #(.WIDE(1)) sd_card
 	.miso(vsdmiso)
 );
 
-wire        clk_sys;
+wire        clk50;
 wire        clk_p;                 
 wire        clk_n;                 
 wire        clkrdy;         // PLL ready
@@ -312,8 +312,11 @@ wire        reset_key;      // кнопка сброса
 wire [1:0]  sw_diskbank;    // линии выбор дисковых банков
 wire        sw_console;     // флаг выбора консольного порта, 0 - терминальный модуль, 1 - ИРПС 2
 wire        sw_cpuslow;     // включение режима замедления процессора
-wire   sdram_ready;         // флаг готовности динамической памяти.
-assign sdram_ready = 1;
+wire        sdram_ready;         // флаг готовности динамической памяти.
+assign      sdram_ready = 1;
+wire        sdram_stb;
+wire        sdram_ack;
+wire [15:0] sdram_dat;
 
 wire vgagreen, vgablue, vgared; // выбор яркости каждого цвета  - сигнал, подаваемый на видео-ЦАП для светящейся и темной точки.   
 assign VGA_G = {8{vgagreen}};
@@ -326,7 +329,7 @@ assign VGA_R = {8{vgared}};
 assign      reset_key = ~(RESET | buttons[1] | status[0]);    // кнопка сброса
 assign      bt_terminal_rst = ~reset_key;  // сброс терминального модуля - от кнопки и автоматически по готовности PLL
 assign      bt_halt = status[3];           // кнопка "пульт"
-assign      timer_on = status[4];          // выключатель таймерного прерывания
+assign      bt_timer = status[4];          // выключатель таймерного прерывания
 
 //************************************************
 //* Переключатели конфигурации
@@ -345,7 +348,7 @@ pll pll
 	.outclk_0(clk_p),    // 100МГц прямая фаза, основная тактовая частота
 	.outclk_1(clk_n),    // 100МГц инверсная фаза
 	.outclk_2(sdclock),  // 12.5 МГц тактовый сигнал SD-карты
-	.outclk_3(clk_sys),  // 50МГц прямая фаза, основная тактовая частота
+	.outclk_3(clk50),    // 50МГц прямая фаза, основная тактовая частота
 	.locked(clkrdy)	     // флаг готовности PLL	
 );
 
@@ -357,11 +360,11 @@ memory #(15) ram
    .wb_adr_i(wb_adr[15:1]),
    .wb_we_i(wb_we),
    .wb_dat_i(wb_out),
-   .wb_dat_o(ram_dat),
-   .wb_cyc_i(ram_stb),
-   .wb_stb_i(ram_stb),
+   .wb_dat_o(sdram_dat),
+   .wb_cyc_i(sdram_stb),
+   .wb_stb_i(sdram_stb),
    .wb_sel_i(wb_sel),
-   .wb_ack_o(ram_ack)
+   .wb_ack_o(sdram_ack)
 );
 
 wire [2:0] vspeed;   // индекс скорости порта
@@ -399,7 +402,7 @@ wire [15:0] vm_ivec;                   // вектор прерывания
 wire uart1_stb;
 wire uart2_stb;
 wire sysram_stb;
-wire ram_stb;
+wire rom_stb;
 wire rk11_stb;
 wire rk611_stb;
 wire lpt_stb;
@@ -411,7 +414,7 @@ wire kgd_stb;
 // линии подтверждения обмена, исходяшие из устройства
 wire uart1_ack;
 wire uart2_ack;
-wire ram_ack;
+wire rom_ack;
 wire rk11_ack;
 wire rk611_ack;
 wire lpt_ack;
@@ -428,7 +431,7 @@ wire my_dma_ack;
 //  Шины данных от периферии
 wire [15:0] uart1_dat;
 wire [15:0] uart2_dat;
-wire [15:0] ram_dat;
+wire [15:0] rom_dat;
 wire [15:0] rk11_dat;
 wire [15:0] rk611_dat;
 wire [15:0] lpt_dat;
@@ -532,7 +535,7 @@ assign vgablue  = (genable & vgavideo_g) | (~tdisable & vgablue_t);
 
 wbc_rst reset
 (
-   .osc_clk(clk_sys),           // основной клок 50 МГц
+   .osc_clk(clk50),             // основной клок 50 МГц
    .sys_clk(wb_clk),            // сигнал синхронизации  wishbone
    .pll_lock(clkrdy),           // сигнал готовности PLL
    .button(reset_key),          // кнопка сброса
@@ -545,7 +548,7 @@ wbc_rst reset
 //**********************************************************
 //*       Процессорная плата
 //**********************************************************
-mc1201_02 cpu(
+`BOARD cpu(
 // Синхросигналы  
    .clk_p(clk_p),
    .clk_n(clk_n),
@@ -585,7 +588,7 @@ mc1201_02 cpu(
 //**********************************
 //* Пзу пользователя 140000-157777
 //**********************************
-/*`ifdef userrom
+`ifdef userrom
 reg rom_ack0;
 reg rom_ack1;
 
@@ -603,7 +606,6 @@ assign rom_ack=rom_ack1;
 `else
 assign rom_ack=1'b0;
 `endif
-*/
 
 //**********************************
 // Выбор консольного порта
@@ -611,6 +613,7 @@ assign rom_ack=1'b0;
 wire  uart1_txd, uart1_rxd;   // линии ИРПС 1
 wire  uart2_txd, uart2_rxd;   // линии ИРПС 2
 wire  terminal_tx,terminal_rx;// линии аппаратного терминала
+
 `ifdef KSM_module
 assign UART_TXD = (sw_console == 0)? uart2_txd : uart1_txd;
 assign terminal_rx = (sw_console == 0)? uart1_txd : uart2_txd;
@@ -761,7 +764,7 @@ ksm terminal(
    .col(col),
    .row(row),
    
-   .clk50(clk_sys),
+   .clk50(clk50), 
    .reset(bt_terminal_rst),         // сброс видеоподсистемы
 	
    .hblank(HBlank),
@@ -795,7 +798,7 @@ kgd graphics(
    .wb_sel_i(wb_sel), 
    .wb_ack_o(kgd_ack),
    
-   .clk50(clk_sys),
+   .clk50 (clk50),
    
    .vreset(bt_terminal_rst),  // сброс графической подсистемы
    .vgavideo(vgavideo_g),  // видеовыход 
@@ -1340,18 +1343,29 @@ assign my_stb     = wb_stb & wb_cyc & (wb_adr[15:2] == (16'o172140 >> 2));   // 
 assign kgd_stb    = wb_stb & wb_cyc & (wb_adr[15:3] == (16'o176640 >> 3));   // КГД - 176640-176646
 
 // ПЗУ пользователя
+`ifdef userrom
+assign rom_stb = wb_stb & wb_cyc & (wb_adr[15:13] == 3'b110);
+`else
+assign rom_stb=1'b0;
+`endif
 
-// Размещение основной памяти :
+// Размещение основной памяти : 
 // + если требуется, добавляется служебная область памяти по сигналу sysram_stb процессорной платы
+`ifdef userrom
+// вариант при наличии ПЗУ пользователя - RAM находится в пространстве 000000 - 137777 
+assign sdram_stb =  (wb_stb & wb_cyc & (wb_adr[15:14] != 2'b11)) | sysram_stb;
+`else
 // вариант без ПЗУ - RAM находится в пространстве 000000 - 157777 
-assign ram_stb =  (wb_stb & wb_cyc & (wb_adr[15:13] != 3'b111)) | sysram_stb;
+assign sdram_stb =  (wb_stb & wb_cyc & (wb_adr[15:13] != 3'b111)) | sysram_stb;
+`endif
 
 // Сигналы подтверждения - собираются через OR со всех устройств
-assign global_ack  = ram_ack | uart1_ack | uart2_ack | rk11_ack | rk611_ack | lpt_ack | dw_ack | rx_ack | my_ack | kgd_ack;
+assign global_ack  = sdram_ack | rom_ack | uart1_ack | uart2_ack | rk11_ack | rk611_ack | lpt_ack | dw_ack | rx_ack | my_ack | kgd_ack;
 
 // Мультиплексор выходных шин данных всех устройств
 assign wb_mux = 
-       (ram_stb   ? ram_dat   : 16'o000000)
+       (sdram_stb ? sdram_dat : 16'o000000)
+     | (rom_stb   ? rom_dat   : 16'o000000)
      | (uart1_stb ? uart1_dat : 16'o000000)
      | (uart2_stb ? uart2_dat : 16'o000000)
      | (rk11_stb  ? rk11_dat  : 16'o000000)
@@ -1371,7 +1385,7 @@ wire VBlank;
 wire vgav;
 
 
-assign CLK_VIDEO = clk_sys;
+assign CLK_VIDEO = clk50;
 assign CE_PIXEL  = 1;
 
 assign VGA_DE = ~(HBlank | VBlank);

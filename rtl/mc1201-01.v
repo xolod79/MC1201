@@ -239,21 +239,24 @@ end
 reg timer_50;
 reg [20:0] timercnt;
 
+wire [20:0] timer_limit=31'd`clkref/8'd100-1'b1;
+
 always @ (posedge clk_p) begin
-  if (timercnt == 21'd1999999) begin
+  if (timercnt == timer_limit) begin
      timercnt <= 21'd0;
-     timer_50 <= 1'b1;
+     timer_50 <= ~timer_50; 
   end  
   else begin
      timercnt <= timercnt + 1'b1;
-     timer_50 <= 1'b0;
   end     
 end
 
 //**********************************
 //* Сигнал разрешения таймера
 //**********************************
+`ifdef timer_init
 initial timer_status=`timer_init;  // начальное состояние таймера
+`endif
 reg [1:0] tbshift;
 reg tbevent;
 

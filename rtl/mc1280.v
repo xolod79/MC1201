@@ -7,10 +7,8 @@
 
 module mc1280 (
 // Синхросигналы  
-   input  clk50,               // входная тактовая частота платы - 50 МГц
-   output busclk,              // Основной синхросигнал общей шины
-   output sdclk,               // Синхросигнал SD-карты
-   output clkrdy,              // сигнал готовности тактового генератора
+   input  clk_p,               // синхросигнал прмой фазы
+   input  clk_n,               // синхросигнал инверсной фазы
    input  cpuslow,             // Режим замедления процессора
 
 // Шина Wishbone                                       
@@ -44,30 +42,25 @@ module mc1280 (
    output reg timer_status     // линия индикатора состояния таймера
 );
 
-// синхросигналы 
-wire clk_p;
-wire clk_n;
 // Системной памяти здесь нет
 assign sysram_stb=1'b0;
 
-//************************************************
-//* тактовый генератор 
-//************************************************
-assign busclk  = clk_p;   // тактовая частота шины wishbone
+wire [15:0] local_dat_i;    // локальная входная шина данных
+wire local_stb;             // локальный сигнал начала транзацкии
+wire cpu_ack;               // вход REPLY процессора
 
-// PLL используется только для синтеза тактового сигнала SD-карты,
-// а также для формирования глобального сигнала запуска системы
-pll100 corepll
-(
-   .inclk0(clk50),
-   .c2(sdclk),     // 12.5 МГц тактовый сигнал SD-карты
-   .locked(clkrdy) // флаг готовности PLL
-);
+// cyc - формальный сигнал, не имеющий смысла в нашей схеме
+assign cpu_cyc_o=cpu_stb_o;
 
-// Этот процессор работает только на 50 Мгц, поэтому тактовый сигнал 
-// берется прямо с основного кварца
-assign clk_p=clk50;
-assign clk_n=~clk50;
+// Сигнал подтвреждения обмена - от общей шины и модуля ROM
+assign cpu_ack = global_ack | bootrom_ack;
+
+// мультиплексор входной шины данных
+assign local_dat_i = (bootrom_stb) ?   bootrom_dat: 16'o0       // boot rom
+                     | cpu_dat_i;                               // остальные устройства на шине
+                   
+// Разрешение транзакций на общей шине - только при отсутствии доступа к локальным устройствам
+assign cpu_stb_o=local_stb & (~bootrom_stb);
 
 
 //*************************************
@@ -86,12 +79,12 @@ am4_wb cpu
                                     // 0 - DMA с внешними устройствами, cpu отключен от шины и бесконечно ждет ответа wb_ack
    .wbm_adr_o(cpu_adr_o),           // выход шины адреса
    .wbm_dat_o(cpu_dat_o),           // выход шины данных
-   .wbm_dat_i(cpu_dat_i),           // вход шины данных
-   .wbm_cyc_o(cpu_cyc_o),           // Строб цила wishbone
+   .wbm_dat_i(local_dat_i),           // вход шины данных
+//   .wbm_cyc_o(cpu_cyc_o),           // Строб цила wishbone
    .wbm_we_o(cpu_we_o),             // разрешение записи
    .wbm_sel_o(cpu_sel_o),           // выбор байтов для передачи
-   .wbm_stb_o(cpu_stb_o),           // строб данных
-   .wbm_ack_i(global_ack),          // вход подтверждения данных
+   .wbm_stb_o(local_stb),           // строб данных
+   .wbm_ack_i(cpu_ack),          // вход подтверждения данных
 
 // Сбросы и прерывания
    .vm_init(vm_init),               // Выход сброса для периферии
@@ -114,16 +107,48 @@ am4_wb cpu
    .vm_bsel(2'b10)
 );
 
+//*******************************************
+//* ПЗУ монитора-загрузчика
+//*******************************************
+wire bootrom_stb;
+wire bootrom_ack;
+wire [15:0] bootrom_dat;
+reg [1:0]bootrom_ack_reg;
+
+`ifdef bootrom_module
+// эмулятор пульта и набор загрузчиков - ПЗУ  165000-166777
+boot_rom bootrom(
+   .address(cpu_adr_o[9:1]),
+   .clock(clk_p),
+   .q(bootrom_dat));
+
+always @ (posedge clk_p) begin
+   bootrom_ack_reg[0] <= bootrom_stb & ~cpu_we_o;
+   bootrom_ack_reg[1] <= bootrom_stb & ~cpu_we_o & bootrom_ack_reg[0];
+end
+assign bootrom_ack = local_stb & bootrom_ack_reg[1];
+
+// сигнал выбора
+assign bootrom_stb   = local_stb & (cpu_adr_o[15:10] == 6'o72); // 164000-165776  
+
+`else 
+assign bootrom_ack=1'b0;
+assign bootrom_stb=1'b0;
+`endif
+
+
 //*************************************************************************
 //* Генератор прерываний от таймера
-//* Сигнал имеет частоту 50 Гц и  коэффициент заполнения 1/1000000
+//* Сигнал имеет частоту 50 Гц и ширину импульса в 1 такт
 //*************************************************************************
 reg timer_50;
 reg [20:0] timercnt;
 
+wire [20:0] timer_limit=31'd`clkref/6'd50-1'b1;
+
 always @ (posedge clk_p) begin
-  if (timercnt == 20'd999999) begin
-     timercnt <= 20'd0;
+  if (timercnt == timer_limit) begin
+     timercnt <= 21'd0;
      timer_50 <= 1'b1;
   end  
   else begin
@@ -131,6 +156,7 @@ always @ (posedge clk_p) begin
      timer_50 <= 1'b0;
   end     
 end
+
 
 //**********************************
 //* Сигнал разрешения таймера

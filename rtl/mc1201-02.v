@@ -73,16 +73,17 @@ assign rom_stb = local_stb & (full_adr[16:13] == 4'b1110);
 assign sysram_stb = local_stb & (full_adr[16:13] == 4'b1111);
 
 // Сигнал подтвреждения обмена - от общей шины и модуля ROM
-assign cpu_ack = global_ack | rom_ack;
+assign cpu_ack = global_ack | rom_ack | bootrom_ack;
 
-// мультиплексор входной шины данных - подключается к общей шине или к ROM
-assign local_dat_i = (rom_stb   ? rom_dat   : cpu_dat_i);
+// мультиплексор входной шины данных - подключается к общей шине и к локальным источникам
+assign local_dat_i = (rom_stb     ? rom_dat    : 16'o0) 
+                  |  (bootrom_stb ? bootrom_dat: 16'o0) 
+                  |  cpu_dat_i;
 
 // В оригинальном процессоре сигнал adr[16] называется SEL и управляет картой памяти. 
 // Признак активной транзакции на общей шине - если адрес [16]==0. 
 // При adr[16]==1 транзакция локальная - с теневым ПЗУ или ОЗУ.
-//assign cpu_cyc_o=local_cyc & (~full_adr[16]);
-assign cpu_stb_o=local_stb & (~full_adr[16]);  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+assign cpu_stb_o=local_stb & (~full_adr[16]);
 
 // Выход адреса на общую шину 
 assign cpu_adr_o=full_adr[15:0];
@@ -188,16 +189,43 @@ end
 //*******************************************
 //* ПЗУ монитора-загрузчика
 //*******************************************
+wire bootrom_stb;
+wire bootrom_ack;
+wire [15:0] bootrom_dat;
+reg [1:0]bootrom_ack_reg;
+
+`ifdef bootrom_module
+// эмулятор пульта и набор загрузчиков - ПЗУ  165000-166777
+boot_rom bootrom(
+   .address(full_adr[9:1]),
+   .clock(clk_p),
+   .q(bootrom_dat));
+
+always @ (posedge clk_p) begin
+   bootrom_ack_reg[0] <= bootrom_stb & ~cpu_we_o;
+   bootrom_ack_reg[1] <= bootrom_stb & ~cpu_we_o & bootrom_ack_reg[0];
+end
+assign bootrom_ack = cpu_stb_o & bootrom_ack_reg[1];
+
+// сигнал выбора
+assign bootrom_stb   = cpu_stb_o & (full_adr[15:10] == 6'o72); // 164000-165776  
+
+`else 
+assign bootrom_ack=1'b0;
+assign bootrom_stb=1'b0;
+`endif
 
 //*************************************************************************
 //* Генератор прерываний от таймера
-//* Сигнал имеет частоту 50 Гц и  коэффициент заполнения 1/100000
+//* Сигнал имеет частоту 50 Гц и ширину импульса в 1 такт
 //*************************************************************************
 reg timer_50;
 reg [20:0] timercnt;
 
+wire [20:0] timer_limit=31'd`clkref/6'd50-1'b1;
+
 always @ (posedge clk_p) begin
-  if (timercnt == 21'd1999999) begin
+  if (timercnt == timer_limit) begin
      timercnt <= 21'd0;
      timer_50 <= 1'b1;
   end  
