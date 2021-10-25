@@ -38,8 +38,9 @@ module emu
 	output        CE_PIXEL,
 
 	//Video aspect ratio for HDMI. Most retro systems have ratio 4:3.
-	output [11:0] VIDEO_ARX,
-	output [11:0] VIDEO_ARY,
+	//if VIDEO_ARX[12] or VIDEO_ARY[12] is set then [11:0] contains scaled size instead of aspect ratio.
+	output [12:0] VIDEO_ARX,
+	output [12:0] VIDEO_ARY,
 
 	output  [7:0] VGA_R,
 	output  [7:0] VGA_G,
@@ -51,14 +52,18 @@ module emu
 	output [1:0]  VGA_SL,
 	output        VGA_SCALER, // Force VGA scaler
 
-	/*
-	// Use framebuffer from DDRAM (USE_FB=1 in qsf)
+	input  [11:0] HDMI_WIDTH,
+	input  [11:0] HDMI_HEIGHT,
+	output        HDMI_FREEZE,
+
+`ifdef MISTER_FB
+	// Use framebuffer in DDRAM (USE_FB=1 in qsf)
 	// FB_FORMAT:
 	//    [2:0] : 011=8bpp(palette) 100=16bpp 101=24bpp 110=32bpp
 	//    [3]   : 0=16bits 565 1=16bits 1555
 	//    [4]   : 0=RGB  1=BGR (for 16/24/32 modes)
 	//
-	// FB_STRIDE either 0 (rounded to 256 bytes) or multiple of 16 bytes.
+	// FB_STRIDE either 0 (rounded to 256 bytes) or multiple of pixel size (in bytes)
 	output        FB_EN,
 	output  [4:0] FB_FORMAT,
 	output [11:0] FB_WIDTH,
@@ -69,6 +74,7 @@ module emu
 	input         FB_LL,
 	output        FB_FORCE_BLANK,
 
+`ifdef MISTER_FB_PALETTE
 	// Palette control for 8bit modes.
 	// Ignored for other video modes.
 	output        FB_PAL_CLK,
@@ -76,7 +82,8 @@ module emu
 	output [23:0] FB_PAL_DOUT,
 	input  [23:0] FB_PAL_DIN,
 	output        FB_PAL_WR,
-	*/
+`endif
+`endif
 
 	output        LED_USER,  // 1 - ON, 0 - OFF.
 
@@ -132,6 +139,20 @@ module emu
 	output        SDRAM_nCAS,
 	output        SDRAM_nRAS,
 	output        SDRAM_nWE,
+
+`ifdef MISTER_DUAL_SDRAM
+	//Secondary SDRAM
+	//Set all output SDRAM_* signals to Z ASAP if SDRAM2_EN is 0
+	input         SDRAM2_EN,
+	output        SDRAM2_CLK,
+	output [12:0] SDRAM2_A,
+	output  [1:0] SDRAM2_BA,
+	inout  [15:0] SDRAM2_DQ,
+	output        SDRAM2_nCS,
+	output        SDRAM2_nCAS,
+	output        SDRAM2_nRAS,
+	output        SDRAM2_nWE,
+`endif
 
 	input         UART_CTS,
 	output        UART_RTS,
@@ -198,14 +219,16 @@ wire [31:0] status;
 wire        ps2_clk;
 wire        ps2_data;
 
-wire [31:0] sd_lba;
+wire [31:0] sd_lba_sd;
+wire [31:0] sd_lba[1] = '{sd_lba_sd};
 wire        sd_rd;
 wire        sd_wr;
 wire        sd_ack;
 wire        sd_ack_conf;
 wire  [8:0] sd_buff_addr;
 wire  [7:0] sd_buff_dout;
-wire  [7:0] sd_buff_din;
+wire  [7:0] sd_buff_din_sd;
+wire  [7:0] sd_buff_din[1] = '{sd_buff_din_sd};
 wire        sd_buff_wr;
 
 wire        img_mounted;
@@ -214,33 +237,30 @@ wire [63:0] img_size;
 
 wire  [7:0] uart_mode;
 
-hps_io #(.STRLEN($size(CONF_STR)>>3), .PS2DIV(3200), .WIDE(1)) hps_io
+hps_io #(.CONF_STR(CONF_STR), .PS2DIV(3200), .WIDE(1)) hps_io
 (
-	.clk_sys(clk50),
+	.clk_sys(clk_p),
 	.HPS_BUS(HPS_BUS),
 	.EXT_BUS(),
 	.gamma_bus(),
 
-	.conf_str(CONF_STR),
 	.forced_scandoubler(forced_scandoubler),
 
 	.buttons(buttons),
 	.status(status),
 	.status_menumask({status[5]}),
+
+	.ps2_kbd_clk_out(ps2_clk),
+	.ps2_kbd_data_out(ps2_data),
 	
-	.sd_ack(sd_ack),
-	.sd_ack_conf(sd_ack_conf),
+	.sd_lba(sd_lba),
 	.sd_rd(sd_rd),
 	.sd_wr(sd_wr),
-	.sd_lba(sd_lba),
+	.sd_ack(sd_ack),
 	.sd_buff_addr(sd_buff_addr),
 	.sd_buff_din(sd_buff_din),
 	.sd_buff_dout(sd_buff_dout),
 	.sd_buff_wr(sd_buff_wr),
-	
-	.ps2_kbd_clk_out(ps2_clk),
-	.ps2_kbd_data_out(ps2_data),
-	
 	.img_mounted(img_mounted),
 	.img_readonly(img_readonly),
 	.img_size(img_size),
@@ -278,20 +298,20 @@ end
 
 sd_card #(.WIDE(1)) sd_card
 (
-	.clk_sys(clk50),
+	.clk_sys(clk_p),
 	.sdhc(1),
 
-	.sd_ack(sd_ack),
-	.sd_ack_conf(sd_ack_conf),
+//	.*,
+	.sd_lba(sd_lba_sd),
 	.sd_rd(sd_rd),
 	.sd_wr(sd_wr),
-	.sd_lba(sd_lba),
+	.sd_ack(sd_ack),
 	.sd_buff_addr(sd_buff_addr),
-	.sd_buff_din(sd_buff_din),
+	.sd_buff_din(sd_buff_din_sd),
 	.sd_buff_dout(sd_buff_dout),
 	.sd_buff_wr(sd_buff_wr),
 
-	.clk_spi(clk50),
+	.clk_spi(clk_p),
 
 	.sck(sdcard_sclk),
 	.ss(sdcard_cs | ~vsd_sel),
@@ -347,10 +367,17 @@ pll pll
 	.rst(0),
 	.outclk_0(clk_p),    // 100МГц прямая фаза, основная тактовая частота
 	.outclk_1(clk_n),    // 100МГц инверсная фаза
-	.outclk_2(sdclock),  // 12.5 МГц тактовый сигнал SD-карты
+//	.outclk_2(sdclock),  // 12.5 МГц тактовый сигнал SD-карты
 	.outclk_3(clk50),    // 50МГц прямая фаза, основная тактовая частота
 	.locked(clkrdy)	     // флаг готовности PLL	
 );
+
+
+reg [2:0] counter = 0;   // 12.5 МГц тактовый сигнал SD-карты
+always @(posedge clk_p)  // Делитель частоты на ??? 8 для SD-Card
+    counter <= counter + 1;
+
+assign sdclock = counter[2]; // 12.5 МГц тактовый сигнал SD-карты
 
 //**********************************
 //* Модуль RAM
