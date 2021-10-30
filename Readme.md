@@ -4,7 +4,7 @@ Port of DVK MC1201 (PDP-11 compatible Soviet computer) [DVK-fpga core by forth32
 
 Based on [PDP-11 microprocessors reverse engineering](https://github.com/1801BM1/cpu11).
 
-Virtual SDcard from files does not work now!!! Sdspi.v rework needed.
+Virtual SDcard from files work.
 
 [Disks image](https://github.com/xolod79/MC1201/blob/master/disk/initdisk.7z) write to SDcard [tools like](https://sourceforge.net/projects/win32diskimager/)
 

@@ -225,10 +225,10 @@ wire        sd_rd;
 wire        sd_wr;
 wire        sd_ack;
 wire        sd_ack_conf;
-wire  [8:0] sd_buff_addr;
-wire  [7:0] sd_buff_dout;
-wire  [7:0] sd_buff_din_sd;
-wire  [7:0] sd_buff_din[1] = '{sd_buff_din_sd};
+wire  [8:0] sd_buff_addr;    // [7:0] for 16bit BUS WIDE, [8:0] for 8bit BUS WIDE
+wire  [7:0] sd_buff_dout;   // [15:0] for 16bit BUS WIDE, [7:0] for 8bit BUS WIDE
+wire  [7:0] sd_buff_din_sd; // [15:0] for 16bit BUS WIDE, [7:0] for 8bit BUS WIDE
+wire  [7:0] sd_buff_din[1] = '{sd_buff_din_sd}; // [15:0] for 16bit BUS WIDE, [7:0] for 8bit BUS WIDE
 wire        sd_buff_wr;
 
 wire        img_mounted;
@@ -237,7 +237,7 @@ wire [63:0] img_size;
 
 wire  [7:0] uart_mode;
 
-hps_io #(.CONF_STR(CONF_STR), .PS2DIV(3200), .WIDE(1)) hps_io
+hps_io #(.CONF_STR(CONF_STR), .PS2DIV(3200), .WIDE(0)) hps_io
 (
 	.clk_sys(clk_p),
 	.HPS_BUS(HPS_BUS),
@@ -296,16 +296,20 @@ always @(posedge clk50) begin
 	if((old_mosi ^ sdcard_mosi) || (old_miso ^ sdcard_miso)) timeout <= 0;
 end
 
-sd_card #(.WIDE(1)) sd_card
+sd_card #(.WIDE(0)) sd_card
 (
 	.clk_sys(clk_p),
-	.sdhc(1),
+	.reset( buttons[1] | status[0]),
 
-//	.*,
+	.sdhc(1),
+	.img_mounted(img_mounted),
+   .img_size(img_size),
+
 	.sd_lba(sd_lba_sd),
 	.sd_rd(sd_rd),
 	.sd_wr(sd_wr),
 	.sd_ack(sd_ack),
+	
 	.sd_buff_addr(sd_buff_addr),
 	.sd_buff_din(sd_buff_din_sd),
 	.sd_buff_dout(sd_buff_dout),
