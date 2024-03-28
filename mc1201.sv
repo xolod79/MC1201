@@ -204,7 +204,7 @@ localparam CONF_STR = {
 	"-;",
 	"O4,Timer,On,Off;",
 	"O5,CPU slow,Off,On;",
-	"O6,Console,Termianl,UART;",
+	"O6,Console,Terminal,UART;",
 	"OAB,Disk bank,0,1,2,3;",
 	"R3,ODT;",
 	"-;",
